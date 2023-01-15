@@ -4,23 +4,31 @@ $color-black: #000000;
 $color-white: #ffffff;
 $color-transparent: rgb(255 255 255 / 0);
 
+$color-ghost-white: #f8f8ff;
+$color-quartz: #dfdfE4;
+$color-silver: #c4c4c4;
+$color-nobel: #979797;
+$color-dim-gray: #746f6f;
+$color-gun-powder: #555557;
+
 // Typography
 //---------------------------------
 
-$font-main: "placeholder", "montserrat", sans-serif;
+$font-main: "Montserrat", "Arial", sans-serif;
 
 // Animation
 //---------------------------------
 
 $default-transition-duration: 0.2s;
-$default-transition-easing: ease;
+$long-transition-duration: 0.7s;
+$default-transition-easing: ease-out;
 $default-transition-settings: $default-transition-duration $default-transition-easing;
 
 // Viewports
 //---------------------------------
 
 $mobile-small: 320px;
-$tablet: 768px;
+$tablet: 600px;
 $laptop: 1024px;
 $desktop: 1440px;
 $desktop-wide: 1920px;

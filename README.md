@@ -1,12 +1,12 @@
 # Gulp boilerplate. Pug + SCSS + ES6 + typescript (webpack-stream)
 
 Simple but comfy boilerplate for fast building static sites
+
 ## Features
 
 - Component approach
-- ES6 syntax
-- typescript support
-- Fast builds and recompiling
+- Typescript (OMG)
+- Fast builds and recompiling optimizations
 - Autoincluding pug and scss files
 
 ## Run Locally

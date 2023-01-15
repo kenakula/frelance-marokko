@@ -2,15 +2,20 @@
 
 @mixin fontFace($variant, $type, $weight, $style) {
   $directory: "../fonts/";
+
   @font-face {
     font-family: "#{$variant}";
-    src: local("#{$variant} #{$type}"), local("#{$variant}-#{$type}"),
-      url("#{$directory}#{$variant}-#{$type}.woff") format("woff"),
-      url("#{$directory}#{$variant}-#{$type}.woff2") format("woff2");
+    src: local("#{$variant} #{$type}"),
+    local("#{$variant}-#{$type}"),
+    url("#{$directory}#{$variant}-#{$type}.woff") format("woff"),
+    url("#{$directory}#{$variant}-#{$type}.woff2") format("woff2");
     font-weight: $weight;
     font-style: $style;
     font-display: swap;
   }
 }
 
-@include fontFace("placeholder", "regular", 400, normal);
+@include fontFace("montserrat", "300", 300, normal);
+@include fontFace("montserrat", "400", 400, normal);
+@include fontFace("montserrat", "500", 500, normal);
+@include fontFace("montserrat", "600", 600, normal);

@@ -55,6 +55,10 @@ export const paths = {
     src: `${SOURCE_PATH}assets/*.webmanifest`,
     output: BUILD_PATH,
   },
+  robots: {
+    src: `${SOURCE_PATH}assets/robots.txt`,
+    output: BUILD_PATH,
+  },
   browserconfig: {
     src: `${SOURCE_PATH}assets/browserconfig.xml`,
     output: BUILD_PATH,

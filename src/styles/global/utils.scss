@@ -19,3 +19,8 @@
   border: none;
   cursor: pointer;
 }
+
+.transitioned {
+  transition: background-color var.$long-transition-duration var.$default-transition-easing,
+    color var.$default-transition-settings, opacity var.$default-transition-settings;
+}

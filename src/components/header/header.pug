@@ -1,0 +1,10 @@
+mixin header(isMainPage, currentPage)
+  - const links = [{url: '#', name: 'link', alias: 'link'}, {url: '#', name: 'link2', alias: 'link2'}, {url: '#', name: 'link3', alias: 'link3'}];
+
+  header.header&attributes(attributes)
+    .header__inner.container
+      if isMainPage
+        a(href="index.html") на главную
+      else
+        a логотип
+      +mainNav({links, currentPage})

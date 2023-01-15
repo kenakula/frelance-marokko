@@ -1,0 +1,27 @@
+@use "../variables" as var;
+
+@mixin retina {
+
+  @media (min-resolution: var.$retina-dpi),
+  (min-resolution: var.$retina-dppx) {
+    @content;
+  }
+}
+
+@mixin min-tablet {
+  @media (min-width: var.$tablet) {
+    @content;
+  }
+}
+
+@mixin min-laptop {
+  @media (min-width: var.$laptop) {
+    @content;
+  }
+}
+
+@mixin min-desktop {
+  @media (min-width: var.$desktop) {
+    @content;
+  }
+}

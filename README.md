@@ -87,7 +87,7 @@ include scss files in src/styles/style.scss
 ### ts
 add ts files to modules folder and its index.ts, then import functions in main.ts.
 ```
-place vendor files in vendor folder and import them in vendor.ts
+place vendor files in src/js/vendor folder and import them in vendor.js manualy
 
 ```javascript
 import { initSomething } from './modules';

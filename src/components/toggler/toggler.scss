@@ -1,0 +1,232 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.toggler {
+  $c: &;
+
+  @include mixin.button-reset;
+
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  z-index: var.$layer-toggler;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 32px;
+  border-radius: var.$border-radius1;
+  background-color: var.$color-transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    @include mixin.pseudo;
+    left: -10px;
+    top: -5px;
+    right: -10px;
+    bottom: -5px;
+  }
+
+  span {
+    position: relative;
+    display: block;
+    width: 21px;
+    height: 1px;
+    border-radius: 2px;
+    background-color: var.$color-white;
+    transition: transform var.$default-transition-settings,
+      background var.$default-transition-settings,
+      width var.$default-transition-settings;
+
+    &::before,
+    &::after {
+      @include mixin.pseudo;
+
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border-radius: 2px;
+      background-color: var.$color-white;
+      transition: transform var.$default-transition-settings;
+    }
+
+    &::before {
+      animation: toggler-top 0.4s ease-in forwards;
+    }
+
+    &::after {
+      animation: toggler-bottom 0.4s ease-in forwards;
+    }
+  }
+
+  &--close {
+    span {
+      background-color: transparent;
+
+      &::before {
+        animation: toggler-top-active 0.4s ease-in forwards;
+        background-color: var.$color-gun-powder;
+      }
+
+      &::after {
+        animation: toggler-bottom-active 0.4s ease-in forwards;
+        background-color: var.$color-gun-powder;
+      }
+    }
+  }
+
+  @include mixin.min-laptop {
+    width: 40px;
+
+    span {
+      width: 40px;
+    }
+  }
+
+  @include mixin.min-desktop {
+    left: 80px;
+  }
+
+  @include mixin.min-desktop-wide {
+    left: 120px;
+    width: 92px;
+    height: 32px;
+
+    span {
+      width: 92px;
+      height: 3px;
+
+      &::before {
+        height: 3px;
+      }
+
+      &::after {
+        height: 3px;
+      }
+    }
+
+    &--close {
+      width: 70px;
+
+      span {
+        width: 70px;
+      }
+    }
+  }
+}
+
+@keyframes toggler-top {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes toggler-bottom {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0);
+  }
+
+  100% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes toggler-top-active {
+  0% {
+    transform: translateY(-8px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+}
+
+@keyframes toggler-bottom-active {
+  0% {
+    transform: translateY(8px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+}
+
+@include mixin.min-desktop {
+  @keyframes toggler-top {
+    0% {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    50% {
+      transform: translateY(0) rotate(0);
+    }
+
+    100% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes toggler-bottom {
+    0% {
+      transform: translateY(0) rotate(-45deg);
+    }
+
+    50% {
+      transform: translateY(0) rotate(0);
+    }
+
+    100% {
+      transform: translateY(12px);
+    }
+  }
+
+  @keyframes toggler-top-active {
+    0% {
+      transform: translateY(-12px);
+    }
+
+    50% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(0) rotate(45deg);
+    }
+  }
+
+  @keyframes toggler-bottom-active {
+    0% {
+      transform: translateY(12px);
+    }
+
+    50% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
+}

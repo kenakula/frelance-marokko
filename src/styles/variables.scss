@@ -27,10 +27,16 @@ $default-transition-settings: $default-transition-duration $default-transition-e
 // Viewports
 //---------------------------------
 
+$gutter-mobile: 20px;
+$gutter-tablet: 25px;
+$gutter-desktop: 80px;
+$gutter-desktop-wide: 120px;
+
 $mobile-small: 320px;
 $tablet: 600px;
 $laptop: 1024px;
 $desktop: 1440px;
+$container: 1680px;
 $desktop-wide: 1920px;
 
 // Retina
@@ -41,7 +47,8 @@ $retina-dppx: 1.5dppx;
 
 // Layers
 //---------------------------------
-$layer-toggler: 100;
+$layer-toggler: 110;
+$layer-main-nav-list: 100;
 
 // Misc
 //---------------------------------

@@ -7,6 +7,9 @@
 //-   altText: string;
 //- }
 
+- const tablet = 600;
+- const desktop = 1440;
+
 mixin img({path, image, format, width, height, altText})
   img(src= `img/${path}${image}.${format}`,
     width= width,
@@ -21,8 +24,11 @@ mixin imgResponsive({path, image, format, width, height, altText})
     alt= altText)
 
 
-mixin picture({path, image, format, width, height, altText})
+mixin picture({path, image, format, width, height, altText, hasTablet})
   picture
+    if hasTablet
+      source(media=`(min-width: ${tablet}px)` srcset=`img/${path}${image}-tablet.webp 1x, img/${path}${image}-tablet@2x.webp 2x`, type="image/webp")
+      source(media=`(min-width: ${tablet}px)` srcset=`img/${path}${image}-tablet.${format} 1x, img/${path}${image}-tablet@2x.${format} 2x`)
     source(srcset=`img/${path}${image}.webp 1x, img/${path}${image}@2x.webp 2x`, type="image/webp")
     img(src= `img/${path}${image}.${format}`,
       srcset= `img/${path}${image}@2x.${format} 2x`,

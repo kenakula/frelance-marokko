@@ -1,4 +1,285 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
 .header {
-  background: lightpink;
-  color: white;
+  $c: &;
+
+  position: relative;
+  background: var.$color-dim-gray;
+  color: var.$color-white;
+  overflow: hidden;
+
+  .scroll-lock & {
+    overflow: visible;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 33px 0 31px;
+    min-height: 94px;
+
+    @include mixin.min-desktop {
+      min-height: 207px;
+    }
+  }
+
+  &__banner-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      @include mixin.pseudo;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, var.$color-black 0%, var.$color-transparent 100%);
+      opacity: 0.5;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    display: none;
+  }
+
+  &__container {
+    margin-bottom: 2px;
+  }
+
+  &__logo {
+    position: relative;
+    display: flex;
+
+    &::before {
+      @include mixin.pseudo;
+      left: -10px;
+      right: -10px;
+      bottom: 0;
+      top: -15px;
+    }
+
+    @include mixin.min-laptop {
+      &:not(#{$c}__logo--main-page) {
+        @include mixin.interactive-opacity;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: mixin.rem(9);
+    line-height: mixin.rem(12);
+
+    &::before {
+      @include mixin.pseudo;
+      left: -10px;
+      right: -10px;
+      bottom: -15px;
+      top: 0;
+    }
+  }
+
+  &--banner {
+    min-height: 254px;
+
+    #{$c}__inner {
+      justify-content: center;
+    }
+
+    #{$c}__container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    #{$c}__logo {
+      &::before {
+        display: none;
+      }
+
+      svg {
+        width: 270px;
+        height: 32px;
+      }
+
+      @include mixin.min-tablet {
+        svg {
+          width: 370px;
+          height: 40px;
+        }
+      }
+
+      @include mixin.min-laptop {
+        svg {
+          width: 680px;
+          height: 85px;
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        svg {
+          width: 975px;
+          height: 108px;
+        }
+      }
+    }
+
+    #{$c}__title {
+      position: absolute;
+      left: 50%;
+      bottom: -50px;
+      display: block;
+      margin: 0;
+      width: 154px;
+      font-size: mixin.rem(15);
+      line-height: mixin.rem(19);
+      font-weight: 400;
+      text-align: center;
+      transform: translateX(-50%);
+
+      @include mixin.min-tablet {
+        bottom: -60px;
+        width: 185px;
+        font-size: mixin.rem(18);
+        line-height: mixin.rem(24);
+      }
+
+      @include mixin.min-laptop {
+        bottom: -35px;
+        width: 100%;
+      }
+
+      @include mixin.min-desktop-wide {
+        bottom: -80px;
+        font-size: mixin.rem(36);
+        line-height: mixin.rem(43);
+      }
+    }
+
+    #{$c}__link {
+      &::before {
+        top: -15px;
+      }
+
+      @include mixin.min-tablet {
+        font-size: mixin.rem(14);
+        line-height: mixin.rem(20);
+      }
+
+      @include mixin.min-laptop {
+        @include mixin.interactive-opacity;
+        font-size: mixin.rem(20);
+        line-height: mixin.rem(30);
+      }
+    }
+
+    .toggler {
+      transform: none;
+      top: 31px;
+    }
+
+    @include mixin.min-tablet {
+      min-height: 420px;
+    }
+
+    @include mixin.min-laptop {
+      min-height: 520px;
+    }
+
+    @include mixin.min-desktop {
+      min-height: 680px;
+
+      .toggler {
+        top: 88px;
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      min-height: 100vh;
+    }
+  }
+
+  &--tall {
+    min-height: 346px;
+
+    @include mixin.min-tablet {
+      min-height: 450px;
+    }
+
+    @include mixin.min-laptop {
+      min-height: 550px;
+    }
+
+    @include mixin.min-desktop {
+      min-height: 720px;
+    }
+  }
+
+  @include mixin.min-tablet {
+    &:not(#{$c}--banner) {
+      #{$c}__inner {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      #{$c}__link {
+        margin-left: auto;
+        font-size: mixin.rem(14);
+        line-height: mixin.rem(20);
+
+        &::before {
+          top: -15px;
+        }
+      }
+
+      #{$c}__container {
+        position: absolute;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  @include mixin.min-laptop {
+    &:not(#{$c}--banner) {
+      #{$c}__logo {
+        svg {
+          width: 200px;
+          height: 33px;
+        }
+      }
+
+      #{$c}__link {
+        @include mixin.interactive-opacity;
+        font-size: mixin.rem(20);
+        line-height: mixin.rem(30);
+      }
+    }
+  }
+
+  @include mixin.min-desktop {
+    &:not(#{$c}--banner) {
+      #{$c}__logo {
+        svg {
+          width: 385px;
+          height: 44px;
+        }
+      }
+
+    }
+  }
 }

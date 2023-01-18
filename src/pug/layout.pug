@@ -1,6 +1,8 @@
 include mixins
 
 block data
+  include ../data/main-nav-links.data.pug
+
 block variables
 
 doctype html
@@ -52,7 +54,7 @@ html(class="no-js" lang=pageLang)
     link(rel="preload", href="fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin)
   body
     noscript.no-script-message У вас отключен JavaScript. Это пугает.
-    +header(isMainPage, page)
+    +header(isMainPage, page, hasBanner, tallBanner, blockTitle, pageTitle)
     main
       block main
     +footer()

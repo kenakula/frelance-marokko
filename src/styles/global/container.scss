@@ -1,8 +1,21 @@
 @use "../variables" as var;
+@use "../mixins" as mixin;
 
 .container {
   width: 100%;
-  max-width: var.$desktop;
+  max-width: var.$desktop-wide;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var.$gutter-mobile;
+
+  @include mixin.min-tablet {
+    padding: 0 var.$gutter-tablet;
+  }
+
+  @include mixin.min-desktop {
+    padding: 0 var.$gutter-desktop;
+  }
+
+  @include mixin.min-desktop-wide {
+    padding: 0 var.$gutter-desktop-wide;
+  }
 }

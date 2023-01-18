@@ -1,0 +1,134 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.main-nav {
+  $c: &;
+
+  &__list {
+    @include mixin.list-reset;
+    z-index: var.$layer-main-nav-list;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 99px 10px 0 25px;
+    width: 146px;
+    min-height: 320px;
+    background-color: rgba($color: var.$color-ghost-white, $alpha: 0.8);
+    opacity: 0;
+    transform: translateX(-100%);
+    backdrop-filter: blur(8px);
+    transition: transform var.$default-transition-settings,
+      opacity var.$long-transition-duration var.$default-transition-easing;
+
+    @include mixin.min-tablet {
+      padding-top: 120px;
+      width: 250px;
+      min-height: 400px;
+    }
+
+    @include mixin.min-laptop {
+      padding-top: 140px;
+      width: 280px;
+      min-height: 450px;
+    }
+
+    @include mixin.min-desktop {
+      padding-top: 210px;
+      padding-left: 80px;
+      width: 300px;
+      min-height: 540px;
+    }
+
+    @include mixin.min-desktop-wide {
+      padding-top: 240px;
+      padding-left: 123px;
+      width: 450px;
+      min-height: 100vh;
+    }
+  }
+
+  &__item {
+    margin-bottom: 27px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      position: relative;
+      padding: 4px 0;
+      color: var.$color-gun-powder;
+
+      &::before {
+        @include mixin.pseudo;
+        top: 0;
+        left: 0;
+        width: 72px;
+        height: 1px;
+        background-color: var.$color-gun-powder;
+      }
+
+      &.active {
+        font-weight: 700;
+        cursor: default;
+
+        &::before {
+          height: 2px;
+        }
+      }
+    }
+
+    @include mixin.min-tablet {
+      margin-bottom: 32px;
+
+      a {
+        font-size: mixin.rem(22);
+        line-height: mixin.rem(26);
+
+        &:not(.active) {
+          @include mixin.interactive-opacity;
+        }
+
+        &::after {
+          @include mixin.pseudo;
+          top: -10px;
+          bottom: -10px;
+          left: -10px;
+          right: -10px;
+        }
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      margin-bottom: 65px;
+
+      a {
+        font-size: mixin.rem(31);
+        line-height: mixin.rem(44);
+
+        &::before {
+          @include mixin.pseudo;
+          top: 0;
+          left: 0;
+          width: 192px;
+          height: 2px;
+          background-color: var.$color-gun-powder;
+        }
+
+        &.active {
+          &::before {
+            height: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    #{$c}__list {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

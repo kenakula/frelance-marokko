@@ -1,10 +1,20 @@
-mixin header(isMainPage, currentPage)
-  - const links = [{url: '#', name: 'link', alias: 'link'}, {url: '#', name: 'link2', alias: 'link2'}, {url: '#', name: 'link3', alias: 'link3'}];
+include ./logo
 
-  header.header&attributes(attributes)
-    .header__inner.container
-      if isMainPage
-        a(href="index.html") на главную
-      else
-        a логотип
-      +mainNav({links, currentPage})
+mixin header(isMainPage, currentPage, hasBanner, tallBanner, title, pageTitle)
+  header.header(class={'header--banner': hasBanner, 'header--tall': tallBanner})&attributes(attributes)
+    if hasBanner
+      .header__banner-image
+        +picture(hasBanner)
+    .container
+      .header__inner
+        h1.visually-hidden #{pageTitle}
+        +mainNav({links: mainNavLinks, currentPage})
+        .header__container
+          if isMainPage
+            a.header__logo.header__logo--main-page(aria-label="Логотип салона")
+              +logo()
+          else
+            a.header__logo(href="/home.html", aria-label="На главную")
+              +logo()
+          h2.header__title #{blockTitle}
+        a.header__link(href="https://some-site.com") Запись в студию

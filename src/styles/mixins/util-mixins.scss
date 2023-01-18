@@ -38,7 +38,7 @@
 }
 
 @mixin transition($property: all) {
-  transition: $property $default-transition-settings;
+  transition: $property var.$default-transition-settings;
 }
 
 @mixin interactive-opacity {

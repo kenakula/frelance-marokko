@@ -13,18 +13,11 @@ import {
   videos,
   pages,
   webconfigs,
-  typescript,
 } from './tasks';
 
 export const server = browserSync.create();
 
-export const copyAssets = parallel(
-  fonts,
-  webconfigs,
-  parallel(images, createWebp),
-  videos,
-  favicons,
-);
+export const copyAssets = parallel(fonts, webconfigs, images, videos, favicons);
 
 const refresh = cb => {
   server.reload();
@@ -40,9 +33,9 @@ const serve = () => {
 
   watch(paths.pages.srcWatch, series(pages, refresh));
   watch(paths.styles.src, styles);
-  watch(paths.images.src, parallel(images, createWebp));
+  watch(paths.images.src, images);
   watch(paths.images.spriteSrc, series(svgSprite, refresh));
-  watch(paths.scripts.ts.src, series(typescript, scripts, refresh));
+  watch(paths.scripts.src, series(scripts, refresh));
 };
 
 export const generateSprite = svgSprite;
@@ -50,14 +43,14 @@ export const generateSprite = svgSprite;
 export const build = series(
   clear,
   parallel(copyAssets, generateSprite),
-  series(typescript, scripts),
+  series(scripts),
   parallel(styles, pages),
 );
 
 export default series(
   clear,
   parallel(copyAssets, generateSprite),
-  series(typescript, scripts),
+  series(scripts),
   parallel(styles, pages),
   serve,
 );

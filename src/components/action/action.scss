@@ -1,0 +1,95 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.action {
+  $c: &;
+
+  background-color: var.$color-dim-gray;
+  color: var.$color-white;
+
+  .container {
+    @include mixin.min-tablet {
+      padding: 0 60px;
+    }
+
+    @include mixin.min-laptop {
+      padding: 0 100px;
+    }
+
+
+    @include mixin.min-laptop {
+      padding: 0 210px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    padding-right: 20px;
+
+    h2 {
+      margin: 0;
+      font-size: mixin.rem(15);
+      line-height: mixin.rem(20);
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      font-size: mixin.rem(15);
+      line-height: mixin.rem(20);
+      font-weight: 300;
+    }
+
+    @include mixin.min-tablet {
+
+      h2,
+      p {
+        font-size: mixin.rem(20);
+        line-height: mixin.rem(28);
+      }
+    }
+
+    @include mixin.min-tablet {
+
+      h2,
+      p {
+        font-size: mixin.rem(24);
+        line-height: mixin.rem(32);
+      }
+    }
+
+    @include mixin.min-desktop {
+
+      h2,
+      p {
+        font-size: mixin.rem(36);
+        line-height: mixin.rem(42);
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+
+      h2,
+      p {
+        font-size: mixin.rem(46);
+        line-height: mixin.rem(52);
+      }
+    }
+  }
+
+  &__button {
+    margin-left: auto;
+  }
+
+  @include mixin.min-desktop {
+    padding: 40px 0;
+  }
+
+  @include mixin.min-desktop {
+    padding: 70px 0;
+  }
+}

@@ -1,0 +1,38 @@
+mixin mainServices()
+  - const leftImage = {path: '', image: 'image-flask', format: 'jpg', width: 202, height: 193, altText: 'Изображение бутылочки с лаком'}
+  - const rightImage = {path: '', image: 'image-nails-1', format: 'jpg', width: 180, height: 211, altText: 'Изображение руки с маникюром на фоне жакета'}
+  - const slider1 = {path: '', image: 'image-nails-2', format: 'jpg', width: 325, height: 265, altText: 'Изображение руки с маникюром на фоне жакета'}
+  - const slider2 = {path: '', image: 'image-brows-1', format: 'jpg', width: 325, height: 265, altText: 'Изображение руки с маникюром на фоне жакета'}
+  - const slider3 = {path: '', image: 'image-feet-1', format: 'jpg', width: 325, height: 265, altText: 'Изображение руки с маникюром на фоне жакета'}
+  -
+    const breakpoints = {
+      600: {slidesPerView: 2},
+    };
+
+  section.section.main-services
+    .container
+      .main-services__top
+        .main-services__image.main-services__image--left
+          +picture(leftImage)
+        .main-services__image.main-services__image--right
+          +picture(rightImage)
+      .main-services__bottom
+        +title('Услуги студии').main-services__title
+        .main-services__bottom-slider
+          .swiper(data-space-between="25", data-breakpoint="1440", data-breakpoints= JSON.stringify(breakpoints))
+            .swiper-wrapper
+              .swiper-slide.swiper-slide--middle
+                .main-services__slide-image
+                  +picture(slider1)
+                p маникюр
+              .swiper-slide.swiper-slide--right
+                .main-services__slide-image
+                  +picture(slider2)
+                p брови
+              .swiper-slide.swiper-slide--left
+                .main-services__slide-image
+                  +picture(slider3)
+                p педикюр
+            .swiper-button-next(aria-label="Следующий слайд")
+        a.main-services__link(href="/services.html") Полный список услуг
+

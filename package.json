@@ -70,5 +70,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "swiper": "^8.4.6"
   }
 }

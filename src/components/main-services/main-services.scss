@@ -1,0 +1,387 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+@use "sass:math";
+
+.main-services {
+  $c: &;
+
+  position: relative;
+  display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @include mixin.min-tablet {
+    margin-bottom: 20px;
+  }
+
+  @include mixin.min-desktop {
+    margin-bottom: 60px;
+  }
+
+  &__top {
+    display: flex;
+    padding-bottom: 90px;
+  }
+
+  &__image {
+    position: relative;
+
+    &--left {
+      position: relative;
+      width: 62.15%;
+      height: 59.38%;
+
+      &::before {
+        @include mixin.pseudo;
+        z-index: -1;
+        top: -1px;
+        left: 24px;
+        width: 105%;
+        height: 115%;
+        border: 1px solid var.$color-dim-gray;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--right {
+      position: absolute;
+      top: 109px;
+      right: 25px;
+      width: 48%;
+      aspect-ratio: 180 / 211;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @include mixin.min-laptop {
+
+      &--left,
+      &--right {
+        position: relative;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        width: 50%;
+      }
+
+      &--left {
+        transform: translateX(1px);
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // SLIDER
+
+  &__title {
+    @include mixin.min-desktop {
+      position: relative;
+      padding: 0 35%;
+
+      &::before {
+        @include mixin.pseudo;
+        right: -20px;
+        top: 50%;
+        width: 35%;
+        height: 3px;
+        background-color: var.$color-dim-gray;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      &::before {
+        right: -30px;
+      }
+    }
+  }
+
+  &__link {
+    @include mixin.interactive-opacity;
+    z-index: 10;
+    position: absolute;
+    bottom: 7px;
+    right: 250px;
+    display: none;
+    font-weight: 500;
+    font-size: mixin.rem(32);
+    line-height: mixin.rem(40);
+
+    &::before {
+      @include mixin.pseudo;
+      right: -270px;
+      top: 51%;
+      width: 200px;
+      height: 3px;
+      background-color: var.$color-dim-gray;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      @include mixin.pseudo;
+      right: -81px;
+      top: 51%;
+      width: 20px;
+      height: 20px;
+      background-image: url("../img/icon-arrow.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transform: translateY(-50%);
+    }
+
+    @include mixin.min-desktop {
+      display: block;
+    }
+
+    @include mixin.min-desktop-wide {
+      font-size: mixin.rem(36);
+
+      &::before,
+      &::after {
+        top: 50%;
+      }
+
+      &::before {
+        right: -280px;
+      }
+
+      &::after {
+        right: -91px;
+      }
+    }
+  }
+
+  &__bottom {
+    @include mixin.min-desktop {
+      position: relative;
+
+      &::before {
+        @include mixin.pseudo;
+        right: -20px;
+        top: 25px;
+        width: 3px;
+        height: calc(100% - 50px);
+        background-color: var.$color-dim-gray;
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      &::before {
+        top: 30px;
+        right: -30px;
+        height: calc(100% - 56px);
+      }
+    }
+  }
+
+  &__slide-image {
+    position: relative;
+    margin-bottom: 16px;
+    padding-bottom: 100%;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include mixin.min-desktop {
+      margin: 0;
+    }
+  }
+
+  &__bottom-slider {
+    .swiper {
+      padding-bottom: 20px;
+      margin-left: -25px;
+      margin-right: -25px;
+
+      @include mixin.min-tablet {
+        padding-bottom: 40px;
+      }
+
+      @include mixin.min-desktop {
+        margin: 0;
+        padding-bottom: 0;
+        min-height: 53vw;
+        overflow: visible;
+      }
+
+      @include mixin.min-desktop-wide {
+        min-height: 965px;
+      }
+    }
+
+    .swiper-slide {
+      p {
+        margin: 0;
+        padding: 0 25px;
+        font-size: mixin.rem(15);
+        line-height: mixin.rem(20);
+        color: var.$color-gun-powder;
+
+        @include mixin.min-laptop {
+          font-size: mixin.rem(24);
+          line-height: mixin.rem(32);
+        }
+
+        @include mixin.min-desktop {
+          position: absolute;
+          top: -60px;
+          padding: 0 64% 0 0;
+          width: 100%;
+          font-size: mixin.rem(36);
+          line-height: mixin.rem(42);
+
+          &::before {
+            @include mixin.pseudo;
+            left: 40%;
+            top: 50%;
+            width: 60%;
+            height: 3px;
+            background-color: var.$color-dim-gray;
+            transform: translateY(50%);
+          }
+        }
+      }
+
+      @include mixin.min-desktop {
+        &--middle {
+          position: absolute;
+          left: 50%;
+          top: 100px;
+          width: 45.833%;
+          transform: translateX(-50%);
+        }
+
+        &--right {
+          position: absolute;
+          top: 205px;
+          right: 0;
+          width: 31.84%;
+
+          p {
+            padding: 0 0 0 62%;
+            text-align: right;
+
+            &::before {
+              right: auto;
+              left: 20%;
+              width: 42%;
+            }
+          }
+        }
+
+        &--left {
+          position: absolute;
+          top: 270px;
+          left: 0;
+          width: 32.67%;
+
+          #{$c}__slide-image {
+            padding-bottom: 80.14%;
+          }
+
+          p {
+            padding-right: 50%;
+
+            &::before {
+              left: 50%;
+              width: 28%;
+            }
+          }
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        &--left {
+          top: 340px;
+        }
+      }
+
+
+    }
+
+    .swiper-wrapper {
+      @include mixin.min-desktop {
+        display: block;
+      }
+    }
+
+    .swiper-button-next {
+      top: auto;
+      left: auto;
+      right: 25px;
+      bottom: 10px;
+      width: 110px;
+      height: 40px;
+      background-image: url("../img/long-arrow-right.svg");
+      background-color: var.$color-white;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      &::after {
+        display: none;
+      }
+
+      @include mixin.min-tablet {
+        bottom: 0;
+      }
+
+      @include mixin.min-laptop {
+        @include mixin.interactive-opacity;
+      }
+
+      @include mixin.min-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__mobile-label {
+    position: relative;
+    margin: 0;
+
+    &::before {
+      @include mixin.pseudo;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      width: 28.53%;
+      transform: translateY(-50%);
+      background-color: var.$color-gun-powder;
+    }
+
+    &::after {
+      @include mixin.pseudo;
+      right: -1px;
+      top: 7px;
+      width: 6px;
+      height: 9px;
+      background-image: url("../img/icon-arrow.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+    }
+  }
+}

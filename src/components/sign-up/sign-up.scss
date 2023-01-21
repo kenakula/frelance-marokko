@@ -1,0 +1,35 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.sign-up {
+  $c: &;
+
+  position: relative;
+  background-color: var.$color-dim-gray;
+
+  &__arrow {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    display: block;
+    width: 107px;
+    height: 20px;
+    background-image: url("../img/long-arrow-left-light.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateY(-50%);
+
+    @include mixin.min-tablet {
+      right: 80px;
+      width: 40%;
+      background-size: cover;
+    }
+
+    @include mixin.min-tablet {
+      right: 123px;
+      width: 40%;
+      background-size: cover;
+    }
+  }
+}

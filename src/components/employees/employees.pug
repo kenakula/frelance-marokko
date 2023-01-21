@@ -1,0 +1,19 @@
+mixin employees(list)
+
+  -
+    const breakpoints = {
+      1024: {slidesPerView: 4}, 1440: {slidesPerView: 5},
+    };
+
+  .employees
+    .swiper.employees__slider(data-space-between="25", data-view="2", data-breakpoints= JSON.stringify(breakpoints))
+      .swiper-wrapper.employees__wrapper
+        each employee in list
+          .swiper-slide.employees__slide
+            .employees__slide-image
+              if !employee.noImage
+                +img(employee.image)
+            h3.employees__slide-title #{employee.name}
+            p.employees__slide-text #{employee.specialty}
+      .swiper-button-next.employees__slider-button(aria-label="Следующий слайд")
+

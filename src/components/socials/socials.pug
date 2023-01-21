@@ -1,0 +1,32 @@
+-
+  const socials = [
+    {
+      name: 'vk',
+      text: 'Мы в вконтакте',
+      link: 'link',
+      width: 30,
+      height: 30,
+    },
+    {
+      name: 'insta',
+      text: 'Мы в инстаграм',
+      link: 'link',
+      width: 30,
+      height: 30,
+    },
+    {
+      name: 'watsapp',
+      text: 'Мы в вотсапп',
+      link: 'link',
+      width: 30,
+      height: 30,
+    },
+  ]
+
+mixin socials()
+  .socials
+    ul.socials__list
+      each item in socials
+        - const itemClass = `socials__link socials__link--${item.name}`;
+        li.socials__item
+          a(href= item.link, target="_blank", rel="noopener noreferrer", aria-label= item.text, class= itemClass)

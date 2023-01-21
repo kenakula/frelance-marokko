@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as mixin;
+
+.main-bottom {
+  $c: &;
+
+  &__image {
+    img {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 550px;
+    }
+
+    @include mixin.min-desktop {
+      img {
+        max-width: 960px;
+      }
+    }
+  }
+}

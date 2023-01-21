@@ -1,3 +1,21 @@
+@use "../mixins" as mixin;
+
 .section {
-  padding: 20px 0;
+  padding: 25px 0;
+
+  @include mixin.min-tablet {
+    padding: 40px 0;
+  }
+
+  @include mixin.min-laptop {
+    padding: 60px 0;
+  }
+
+  @include mixin.min-desktop {
+    padding: 80px 0;
+  }
+
+  @include mixin.min-desktop-wide {
+    padding: 105px 0;
+  }
 }

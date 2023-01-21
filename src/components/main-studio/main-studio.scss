@@ -1,0 +1,120 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+@use "sass:math";
+
+.main-studio {
+  $c: &;
+
+  &__layout {
+    @include mixin.min-laptop {
+      display: flex;
+      column-gap: 40px;
+    }
+
+    @include mixin.min-laptop {
+      column-gap: 85px;
+    }
+  }
+
+  &__col {
+    &--right {
+      position: relative;
+
+      &::before {
+        @include mixin.pseudo;
+        right: -#{var.$gutter-tablet};
+        bottom: 0;
+        display: none;
+        width: 90%;
+        height: 3px;
+        background-color: var.$color-dim-gray;
+      }
+
+      @include mixin.min-laptop {
+        &::before {
+          display: block;
+        }
+      }
+
+      @include mixin.min-desktop {
+        &::before {
+          width: 100%;
+          right: -#{var.$gutter-desktop};
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        &::before {
+          right: calc(-1 * (50vw - var.$container / 2));
+        }
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 0 0 5px 0;
+      font-size: mixin.rem(11);
+      line-height: 1.35;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include mixin.min-tablet {
+        margin: 0 0 10px 0;
+        font-size: mixin.rem(18);
+      }
+
+      @include mixin.min-desktop {
+        margin: 0 0 10px 0;
+        font-size: mixin.rem(28);
+      }
+
+      @include mixin.min-desktop-wide {
+        margin: 0 0 10px 0;
+        font-size: mixin.rem(34);
+      }
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--mobile-hidden {
+      display: none;
+
+      @include mixin.min-laptop {
+        display: block;
+      }
+    }
+
+    img {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 550px;
+    }
+
+    @include mixin.min-laptop {
+      margin-bottom: 40px;
+    }
+
+    @include mixin.min-laptop {
+      margin-bottom: 85px;
+
+      img {
+        max-width: none;
+      }
+    }
+  }
+}

@@ -24,10 +24,12 @@ mixin imgResponsive({path, image, format, width, height, altText})
     alt= altText)
 
 
-mixin picture({path, image, format, width, height, altText, hasTablet})
+mixin picture({path, image, format, width, height, altText, hasTablet, hasDesktop})
   picture
     if hasTablet
       source(media=`(min-width: ${tablet}px)` srcset=`img/${path}${image}-tablet.${format} 1x, img/${path}${image}-tablet@2x.${format} 2x`)
+    if hasDesktop
+      source(media=`(min-width: ${desktop}px)` srcset=`img/${path}${image}-desktop.${format} 1x, img/${path}${image}-desktop@2x.${format} 2x`)
     img(src= `img/${path}${image}.${format}`,
       srcset= `img/${path}${image}@2x.${format} 2x`,
       width= width,

@@ -7,8 +7,11 @@
 
   position: relative;
   display: flex;
-  padding-top: 0;
   padding-bottom: 0;
+
+  &#{$c} {
+    padding-top: 0;
+  }
 
   @include mixin.min-tablet {
     margin-bottom: 20px;
@@ -21,6 +24,7 @@
   &__top {
     display: flex;
     padding-bottom: 90px;
+    margin-bottom: 20px;
   }
 
   &__image {
@@ -36,8 +40,8 @@
         z-index: -1;
         top: -1px;
         left: 24px;
-        width: 105%;
-        height: 115%;
+        width: 100%;
+        height: 110%;
         border: 1px solid var.$color-dim-gray;
       }
 
@@ -59,6 +63,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      @include mixin.min-tablet {
+        top: 140px;
       }
     }
 
@@ -113,7 +121,7 @@
     @include mixin.interactive-opacity;
     z-index: 10;
     position: absolute;
-    bottom: 7px;
+    bottom: 8px;
     right: 250px;
     display: none;
     font-weight: 500;
@@ -152,7 +160,7 @@
 
       &::before,
       &::after {
-        top: 50%;
+        top: 52%;
       }
 
       &::before {
@@ -334,7 +342,7 @@
       width: 110px;
       height: 40px;
       background-image: url("../img/long-arrow-right.svg");
-      background-color: var.$color-white;
+      background-color: var.$color-quartz;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: contain;

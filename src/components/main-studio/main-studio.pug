@@ -1,0 +1,50 @@
+mixin mainStudio()
+  -
+    const image1 = {
+      path: '',
+      image: 'image-studio-1',
+      format: 'jpg',
+      width: 325,
+      height: 185,
+      altText: 'Изображение мебели салона',
+      hasTablet: true,
+    };
+
+    const image2 = {
+      path: '',
+      image: 'image-studio-2',
+      format: 'jpg',
+      width: 649,
+      height: 1226,
+      altText: 'Изображение мебели салона',
+    };
+
+    const image3 = {
+      path: '',
+      image: 'image-studio-3',
+      format: 'jpg',
+      width: 325,
+      height: 392,
+      altText: 'Изображение кресла где проходят процедуры',
+    }
+
+  section.section.main-studio
+    .container
+      .main-studio__inner
+        .main-studio__layout
+          .main-studio__col.main-studio__col--left
+            +title('Наша студия').main-studio__title
+            .main-studio__text
+              p В нашем салоне Вы можете воспользоваться услугами мастеров ногтевого сервиса, мастеров по оформлению бровей и  мастерапо наращиванию ресниц.
+            .main-studio__image
+              +picture(image1)
+            .main-studio__image.main-studio__image--mobile-hidden
+              +picture(image2)
+          .main-studio__col.main-studio__col--right
+            .main-studio__image
+              +picture(image3)
+            .main-studio__text
+              p Также у нас есть процедуры SPA-маникюра и SPA-педикюра.
+              p Мы ценим Ваше личное время!
+              p Поэтому в салоне есть услуги 2 в 1 и 3 в 1 - Вы можете сделать несколько процедур в один промежуток времени, что существенно сократит пребывание в салоне и освободит большую часть Вашего личного времени.
+

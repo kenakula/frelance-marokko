@@ -1,4 +1,163 @@
+@use "../../styles/mixins.scss" as mixin;
+@use "../../styles/variables.scss" as var;
+
 .footer {
-  background: lightpink;
-  color: white;
+  padding: 25px 0;
+
+  &__title {
+    margin: 0 0 20px 0;
+    font-size: mixin.rem(20);
+    font-weight: 400;
+    text-align: center;
+
+    @include mixin.min-tablet {
+      margin-bottom: 40px;
+      font-size: mixin.rem(30);
+    }
+
+    @include mixin.min-laptop {
+      font-size: mixin.rem(34);
+    }
+
+    @include mixin.min-desktop-wide {
+      margin-bottom: 80px;
+      font-size: mixin.rem(50);
+    }
+  }
+
+  &__address {
+    font-style: normal;
+    text-align: center;
+    font-size: mixin.rem(12);
+
+    &-text {
+      margin: 0 0 10px 0;
+    }
+
+    &>a {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    @include mixin.min-tablet {
+      font-size: mixin.rem(22);
+      line-height: 1.3;
+
+      &-text {
+        margin-bottom: 20px;
+      }
+
+      &>a {
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: mixin.rem(22);
+      }
+    }
+
+    @include mixin.min-laptop {
+      font-size: mixin.rem(26);
+
+      h3 {
+        font-size: mixin.rem(26);
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      font-size: mixin.rem(36);
+
+      &-text {
+        margin-bottom: 40px;
+      }
+
+      &>a {
+        margin-bottom: 40px;
+      }
+
+      h3 {
+        font-size: mixin.rem(36);
+      }
+    }
+  }
+
+  &__time {
+    margin-bottom: 20px;
+    line-height: 1;
+
+    &-list {
+      @include mixin.list-reset;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__socials {
+    margin-bottom: 30px;
+  }
+
+  &__bottom {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+    &::before {
+      @include mixin.pseudo;
+      left: 50%;
+      top: 0;
+      height: 1px;
+      width: 55%;
+      background-color: var.$color-gun-powder;
+      transform: translateX(-50%);
+    }
+
+    @include mixin.min-laptop {
+      a {
+        @include mixin.interactive-opacity;
+      }
+    }
+  }
+
+  @include mixin.min-tablet {
+    padding: 40px 0;
+
+    &__time {
+      margin-bottom: 40px;
+    }
+
+    &__socials {
+      margin-bottom: 30px;
+    }
+
+    &__bottom {
+      padding-top: 30px;
+    }
+  }
+
+  @include mixin.min-laptop {
+    padding: 60px 0 40px;
+
+    &__bottom {
+      font-size: mixin.rem(22);
+    }
+  }
+
+  @include mixin.min-desktop-wide {
+    padding: 90px 0 40px;
+
+    &__time {
+      margin-bottom: 40px;
+    }
+
+    &__socials {
+      margin-bottom: 60px;
+    }
+
+    &__bottom {
+      padding-top: 60px;
+    }
+  }
 }

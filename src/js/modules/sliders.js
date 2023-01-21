@@ -10,15 +10,18 @@ export const initSliders = () => {
 
   const initialize = node => {
     let spaceBetween = node.dataset.spaceBetween ?? 25;
+    let slidesPerView = node.dataset.view ?? 1;
+    let loop = node.dataset.loop ?? false;
     let breakpoints = node.dataset.breakpoints;
     let destroyBreakpoint = Boolean(node.dataset.breakpoint)
       ? window.matchMedia(`(min-width: ${node.dataset.breakpoint}px)`)
       : null;
 
     const options = {
-      loop: true,
+      loop: Boolean(loop),
       modules: [Navigation],
       spaceBetween: +spaceBetween,
+      slidesPerView,
       observer: true,
       observeParents: true,
       breakpoints: breakpoints ? JSON.parse(breakpoints) : undefined,

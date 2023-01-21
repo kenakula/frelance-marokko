@@ -2,6 +2,7 @@ include mixins
 
 block data
   include ../data/main-nav-links.data.pug
+  include ../data/employees.data.pug
 
 block variables
 
@@ -51,7 +52,7 @@ html(class="no-js" lang=pageLang)
     link(rel="stylesheet", href="css/style.min.css")
     meta(name="theme-color" content="#ffffff")
 
-    link(rel="prefetch", href="fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload", href="fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin)
   body
     noscript.no-script-message У вас отключен JavaScript. Это пугает.
     +header(isMainPage, page, hasBanner, tallBanner, blockTitle, pageTitle)

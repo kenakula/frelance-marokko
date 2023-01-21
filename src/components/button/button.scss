@@ -3,6 +3,9 @@
 
 .button {
   @include mixin.button-reset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 30px;
   max-width: 133px;
   padding: 0 7px;
@@ -12,6 +15,7 @@
   line-height: mixin.rem(14);
   font-weight: 600;
   color: var.$color-gun-powder;
+  text-align: center;
 
   @include mixin.min-tablet {
     @include mixin.interactive-opacity;

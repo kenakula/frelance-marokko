@@ -1,0 +1,15 @@
+mixin mainBottom()
+  -
+    const image = {
+      path: '',
+      image: 'image-nails-3',
+      format: 'jpg',
+      width: 325,
+      height: 382,
+      altText: 'Изображение кистей с маникюром',
+    }
+
+  .section.main-bottom
+    .container
+      .main-bottom__image
+        +picture(image)

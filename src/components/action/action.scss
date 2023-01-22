@@ -85,6 +85,11 @@
     margin-left: auto;
   }
 
+  &--alt {
+    background-color: var.$color-transparent;
+    color: inherit;
+  }
+
   @include mixin.min-desktop {
     padding: 40px 0;
   }

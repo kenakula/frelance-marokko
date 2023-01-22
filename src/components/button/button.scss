@@ -17,6 +17,11 @@
   color: var.$color-gun-powder;
   text-align: center;
 
+  &--dark {
+    color: var.$color-white;
+    background-color: var.$color-dim-gray;
+  }
+
   @include mixin.min-tablet {
     @include mixin.interactive-opacity;
     padding: 0 10px;

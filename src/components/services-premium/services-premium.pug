@@ -1,0 +1,44 @@
+-
+  const image1 = {
+    path: '',
+    image: 'image-service-3',
+    format: 'jpg',
+    width: 262,
+    height: 289,
+    altText: 'Услуга в 6 или 4 руки',
+  };
+  const image2 = {
+    path: '',
+    image: 'image-service',
+    format: 'jpg',
+    width: 654,
+    height: 714,
+    altText: 'Услуга в 6 или 4 руки',
+  };
+  const image3 = {
+    path: '',
+    image: 'image-service-2',
+    format: 'jpg',
+    width: 444,
+    height: 504,
+    altText: 'Услуга в 6 или 4 руки',
+  };
+
+mixin servicesPremium()
+  section.section.services-premium
+    .container
+      .services-premium__main-block
+        +title('Услуга в 6 или 4 руки').services-premium__title
+        p.services-premium__text В нашем салоне есть возможность одновременно сделать маникюр, педикюр, укладку бровей в 6 или 4 рук. Вы можете сделать две или три процедуры одновременно, что сэкономит Ваше личное время.
+        .services-premium__image.services-premium__image--main
+          span.services-premium__frame.services-premium__frame--top
+          span.services-premium__frame.services-premium__frame--bottom
+          +picture(image1)
+      .services-premium__left-block
+        .services-premium__image.services-premium__image--left
+          +picture(image2)
+        p.services-premium__text.services-premium__text--desktop-hidden Данная услуга поможет сэкономить Ваше время!
+      .services-premium__right-block
+        p.services-premium__text.services-premium__text--mobile-hidden Стоимость услуги расчитывается исходя из выбранных Вами продедур.
+        .services-premium__image.services-premium__image--right
+          +picture(image3)

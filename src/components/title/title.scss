@@ -9,6 +9,10 @@
   color: var.$color-gun-powder;
   text-align: center;
 
+  &--light {
+    color: var.$color-white;
+  }
+
   @include mixin.min-tablet {
     font-size: mixin.rem(24);
     line-height: mixin.rem(32);

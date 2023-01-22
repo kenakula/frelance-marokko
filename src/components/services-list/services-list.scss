@@ -1,0 +1,147 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.services-list {
+  $c: &;
+  overflow-x: hidden;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    background-color: var.$color-dim-gray;
+    color: var.$color-white;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include mixin.min-desktop {
+      padding: 40px 0;
+    }
+
+    @include mixin.min-desktop-wide {
+      padding: 60px 0;
+    }
+  }
+
+  &__block--light {
+    background-color: var.$color-quartz;
+    color: var.$color-gun-powder;
+
+    #{$c}__subtitle {
+      &::before {
+        background-color: var.$color-dim-gray;
+      }
+    }
+  }
+
+  &__image {
+    margin: -20px 0 20px 0;
+
+    &--last {
+      margin-top: 0;
+      background-color: var.$color-quartz;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    @include mixin.min-desktop {
+      margin-top: -40px;
+      margin-bottom: 40px;
+
+      &--last {
+        margin-top: 0;
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      margin-top: -60px;
+      margin-bottom: 90px;
+
+      &--last {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+    align-self: flex-end;
+    margin: 0 0 15px 0;
+    font-size: mixin.rem(12);
+    line-height: 1.2;
+    font-weight: 400;
+
+    &::before {
+      @include mixin.pseudo;
+      right: calc(100% + 20px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100vw;
+      height: 1px;
+      background-color: var.$color-white;
+    }
+
+    @include mixin.min-tablet {
+      font-size: mixin.rem(20);
+      margin-bottom: 20px;
+    }
+
+    @include mixin.min-desktop {
+      font-size: mixin.rem(26);
+      margin-bottom: 50px;
+    }
+
+    @include mixin.min-desktop-wide {
+      font-size: mixin.rem(50);
+      margin-bottom: 90px;
+    }
+  }
+
+  &__table {
+    font-size: mixin.rem(10);
+
+    td:first-child {
+      padding-right: 10px;
+    }
+
+    td:last-child {
+      font-size: inherit;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    @include mixin.min-tablet {
+      font-size: mixin.rem(18);
+      line-height: 1.5;
+    }
+
+    @include mixin.min-desktop {
+      font-size: mixin.rem(24);
+      line-height: 1.5;
+
+      td {
+        padding: 5px 0;
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      font-size: mixin.rem(50);
+      line-height: 1.5;
+
+      td {
+        padding: 10px 0;
+      }
+    }
+  }
+
+  &.section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

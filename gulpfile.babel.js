@@ -3,7 +3,6 @@ import browserSync from 'browser-sync';
 import { BUILD_PATH, paths } from './paths';
 import {
   clear,
-  createWebp,
   favicons,
   fonts,
   images,

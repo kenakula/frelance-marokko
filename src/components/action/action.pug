@@ -1,9 +1,9 @@
-mixin action()
+mixin action(alt)
 
-  section.section.action
+  section.section.action(class = alt ? 'action--alt' : null)
     .container
       .action__inner
         .action__info
           h2 Скидка 10%
           p для новых клиентов
-        button.button.action__button(type="button") Записаться на услугу
+        button.button.action__button(type="button", class= alt ? 'button--dark' : null) Записаться на услугу

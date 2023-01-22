@@ -1,0 +1,89 @@
+include ../../data/services.data.pug
+
+mixin servicesList()
+
+  -
+    const image1 = {
+      path: '',
+      image: 'image-service-4',
+      format: 'jpg',
+      width: 325,
+      height: 182,
+      altText: 'Мастер Елена',
+    };
+    const image2 = {
+      path: '',
+      image: 'image-service-5',
+      format: 'jpg',
+      width: 325,
+      height: 182,
+      altText: 'Мастер Елена',
+    };
+    const image3 = {
+      path: '',
+      image: 'image-service-6',
+      format: 'jpg',
+      width: 325,
+      height: 182,
+      altText: 'Мастер Елена',
+    };
+
+  section.section.services-list
+    .services-list__block
+      +title('Полный прайс наших услуг', true).services-list__title
+      .container
+        h3.services-list__subtitle #{services.womenNails.name}
+        table.services-list__table
+          tbody
+            tr.visually-hidden
+              th Название
+              th Цена
+            each row in services.womenNails.list
+              tr
+                td #{row.name}
+                td #{row.price}
+    .services-list__block.services-list__block--light
+      .container
+        .services-list__image
+          +picture(image1)
+        h3.services-list__subtitle #{services.mensList.name}
+        table.services-list__table
+          tbody
+            tr.visually-hidden
+              th Название
+              th Цена
+            each row in services.mensList.list
+              tr
+                td #{row.name}
+                td #{row.price}
+    +signUp(true).services-list__signup
+    .services-list__block.services-list__block--light
+      .container
+        .services-list__image
+          +picture(image2)
+        h3.services-list__subtitle #{services.browsList.name}
+        table.services-list__table
+          tbody
+            tr.visually-hidden
+              th Название
+              th Цена
+            each row in services.browsList.list
+              tr
+                td #{row.name}
+                td #{row.price}
+    .services-list__block
+      .container
+        h3.services-list__subtitle #{services.additionals.name}
+        table.services-list__table
+          tbody
+            tr.visually-hidden
+              th Название
+              th Цена
+            each row in services.additionals.list
+              tr
+                td #{row.name}
+                td #{row.price}
+    .services-list__image.services-list__image--last
+      .container
+        +picture(image3)
+

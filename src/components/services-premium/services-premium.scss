@@ -1,0 +1,315 @@
+@use "../../styles/mixins.scss" as mixin;
+@use "../../styles/variables.scss" as var;
+
+.services-premium {
+  $c: &;
+
+  overflow: hidden;
+
+  .container {
+    position: relative;
+  }
+
+  &__main-block {
+    display: flex;
+    flex-direction: column;
+
+    #{$c}__title {
+      align-self: flex-start;
+    }
+
+    @include mixin.min-laptop {
+      #{$c}__title {
+        align-self: flex-end;
+      }
+
+      #{$c}__text {
+        align-self: flex-end;
+        text-align: right;
+        margin-bottom: 60px;
+        max-width: 50%;
+      }
+    }
+  }
+
+  &__left-block {
+    position: relative;
+    top: -40px;
+    display: flex;
+
+    #{$c}__text {
+      margin: 40px 0 0 0;
+      align-self: center;
+      text-align: center;
+    }
+
+    @include mixin.min-laptop {
+      position: absolute;
+      left: var.$gutter-mobile;
+      top: 60px;
+      width: 42%;
+    }
+
+    @include mixin.min-desktop {
+      left: var.$gutter-desktop;
+    }
+
+    @include mixin.min-desktop-wide {
+      top: 105px;
+      left: var.$gutter-desktop-wide;
+      width: 36%;
+    }
+  }
+
+  &__right-block {
+    margin-top: -20px;
+
+    @include mixin.min-laptop {
+      margin: 0;
+      position: absolute;
+      right: var.$gutter-mobile;
+      bottom: 200px;
+      display: flex;
+      flex-direction: column;
+      width: 26%;
+
+      #{$c}__text {
+        margin-bottom: 40px;
+        text-align: right;
+        max-width: 80%;
+        align-self: flex-end;
+      }
+    }
+
+    @include mixin.min-desktop {
+      right: var.$gutter-desktop;
+    }
+
+    @include mixin.min-desktop-wide {
+      // bottom: 350px;
+      right: var.$gutter-desktop-wide;
+
+      #{$c}__text {
+        max-width: 75%;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0 0 20px 0;
+    font-size: mixin.rem(10);
+    line-height: 1.2;
+
+    &--mobile-hidden {
+      display: none;
+    }
+
+    @include mixin.min-tablet {
+      font-size: mixin.rem(18);
+    }
+
+    @include mixin.min-laptop {
+      &--mobile-hidden {
+        display: block;
+      }
+
+      &--desktop-hidden {
+        display: none;
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      font-size: mixin.rem(26);
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    &--main {
+      position: relative;
+      align-self: flex-end;
+      width: 80.61%;
+      padding-bottom: 89%;
+
+      &::before {
+        @include mixin.pseudo;
+        left: -30px;
+        top: 20px;
+        width: 100%;
+        height: 100%;
+        border-left: 1px solid var.$color-dim-gray;
+        border-top: 1px solid var.$color-dim-gray;
+      }
+
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include mixin.min-tablet {
+        &::before {
+          top: 60px;
+          left: -60px;
+        }
+      }
+
+      @include mixin.min-laptop {
+        z-index: 100;
+        align-self: center;
+        width: 45%;
+        padding-bottom: 55%;
+        border: 20px solid var.$color-quartz;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        border-width: 40px;
+      }
+    }
+
+    &--left {
+      flex-shrink: 0;
+      width: 62.46%;
+      padding-bottom: 39.38%;
+      overflow: hidden;
+      border-top: 20px solid var.$color-quartz;
+      border-right: 20px solid var.$color-quartz;
+
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      @include mixin.min-laptop {
+        border: none;
+        padding-bottom: 109%;
+        width: 100%;
+      }
+    }
+
+    &--right {
+      width: 100%;
+      padding-bottom: 67.15%;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        left: 0;
+        top: -53px;
+        width: 100%;
+      }
+
+      @include mixin.min-laptop {
+        padding-bottom: 113%;
+
+        img {
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &__frame {
+    position: absolute;
+    display: none;
+    width: 2px;
+    height: 2px;
+    background-color: var.$color-gun-powder;
+
+    &::before {
+      @include mixin.pseudo;
+      position: absolute;
+      top: 0;
+      width: 250px;
+      height: 2px;
+      background-color: var.$color-gun-powder;
+    }
+
+    &::after {
+      @include mixin.pseudo;
+      position: absolute;
+      left: 0;
+      width: 2px;
+      height: 50px;
+      background-color: var.$color-gun-powder;
+    }
+
+    &--top {
+      top: -20px;
+      right: -20px;
+
+      &::before {
+        right: 0;
+      }
+
+      &::after {
+        top: 0;
+      }
+    }
+
+    &--bottom {
+      bottom: -20px;
+      left: -20px;
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+    }
+
+    @include mixin.min-desktop {
+      display: block;
+
+      &::before {
+        @include mixin.pseudo;
+        position: absolute;
+        top: 0;
+        width: 300px;
+        height: 2px;
+        background-color: var.$color-gun-powder;
+      }
+
+      &::after {
+        @include mixin.pseudo;
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 100px;
+        background-color: var.$color-gun-powder;
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      &::before {
+        width: 480px;
+      }
+
+      &::after {
+        height: 200px;
+      }
+
+      &--top {
+        top: -40px;
+        right: -40px;
+      }
+
+      &--bottom {
+        bottom: -40px;
+        left: -40px;
+      }
+    }
+  }
+}

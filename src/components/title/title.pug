@@ -1,2 +1,2 @@
-mixin title(text)
-  h2.title&attributes(attributes) #{text}
+mixin title(text, isLight)
+  h2.title(class= isLight ? 'title--light' : null)&attributes(attributes) #{text}

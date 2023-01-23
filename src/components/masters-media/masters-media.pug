@@ -1,0 +1,32 @@
+mixin mastersMedia()
+  -
+    const image1 = {
+      path: '',
+      image: 'image-nails-4',
+      format: 'jpg',
+      width: 325,
+      height: 254,
+      altText: 'Мастер Мария',
+    };
+
+    const image2 = {
+      path: '',
+      image: 'image-nails-6',
+      format: 'jpg',
+      width: 163,
+      height: 127,
+      altText: 'Мастер Мария',
+    };
+
+  section.section.masters-media
+    .container
+      h1.visually-hidden Примеры работ наших мастеров
+      ul.masters-media__list
+        .masters-media__item
+          +picture(image1)
+        .masters-media__item.masters-media__item--small
+          +picture(image2)
+        .masters-media__item.masters-media__item--video
+          .masters-media__video
+            video.vlite-js(src="video/cat_in_the_sun.mp4", data-video)
+

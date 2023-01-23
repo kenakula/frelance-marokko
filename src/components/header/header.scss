@@ -21,7 +21,11 @@
     min-height: 94px;
 
     @include mixin.min-desktop {
-      min-height: 207px;
+      min-height: 120px;
+    }
+
+    @include mixin.min-desktop-wide {
+      min-height: 160px;
     }
   }
 
@@ -279,7 +283,12 @@
           height: 44px;
         }
       }
+    }
+  }
 
+  @include mixin.min-desktop {
+    &:not(#{$c}--banner) {
+      overflow: visible;
     }
   }
 }

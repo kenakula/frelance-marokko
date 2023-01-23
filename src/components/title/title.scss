@@ -36,3 +36,67 @@
     line-height: mixin.rem(60);
   }
 }
+
+.title-lined {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 20px 0;
+
+  h2 {
+    position: relative;
+    margin: 0;
+    font-size: mixin.rem(12);
+    line-height: 1.2;
+    font-weight: 400;
+
+    &::before {
+      @include mixin.pseudo;
+      left: calc(100% + 20px);
+      bottom: 4px;
+      width: 100vw;
+      height: 1px;
+      background-color: var.$color-dim-gray;
+    }
+  }
+
+  @include mixin.min-tablet {
+    h2 {
+      font-size: mixin.rem(20);
+    }
+  }
+
+  @include mixin.min-laptop {
+    margin-bottom: 40px;
+
+    h2 {
+      &::before {
+        height: 2px;
+        bottom: 5px;
+      }
+    }
+  }
+
+  @include mixin.min-desktop {
+    margin-bottom: 50px;
+
+    h2 {
+      font-size: mixin.rem(26);
+
+      &::before {
+        bottom: 6px;
+      }
+    }
+  }
+
+  @include mixin.min-desktop-wide {
+    margin-bottom: 90px;
+
+    h2 {
+      font-size: mixin.rem(50);
+
+      &::before {
+        bottom: 10px;
+      }
+    }
+  }
+}

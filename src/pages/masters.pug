@@ -9,7 +9,11 @@ block variables
     const title = 'MAROKKO | Мастера';
     const pageDescription = 'Page description';
     const pageKeywords = 'Page keywords';
+    const pageTitle = 'Марокко. Мастера студии.';
 
 block main
-  section.container
+  h1.visually-hidden #{pageTitle}
+  +mastersBlock('Мастера ногтевого сервиса', nailsMasters)
+  +mastersMedia()
+
 

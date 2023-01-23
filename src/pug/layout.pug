@@ -3,6 +3,7 @@ include mixins
 block data
   include ../data/main-nav-links.data.pug
   include ../data/employees.data.pug
+  include ../data/nails-masters.data.pug
 
 block variables
 
@@ -49,6 +50,7 @@ html(class="no-js" lang=pageLang)
     meta(name="format-detection", content="address=no")
     meta(name="format-detection", content="email=no")
 
+    link(href="https://cdn.jsdelivr.net/npm/vlitejs@4/dist/vlite.css" rel="stylesheet" crossorigin)
     link(rel="stylesheet", href="css/style.min.css")
     meta(name="theme-color" content="#ffffff")
 

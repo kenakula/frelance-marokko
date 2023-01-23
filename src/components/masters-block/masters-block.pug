@@ -1,0 +1,12 @@
+mixin mastersBlock(title, list)
+  section.section.masters-block
+    .container
+      .masters-block__inner
+        +titleLined(title)
+        ul.masters-block__list
+          each item in list
+            li.masters-block__item
+              .masters-block__image
+                +picture(item.image)
+              h3.masters-block__name #{item.name}
+              p.masters-block__specialty #{item.specialty}

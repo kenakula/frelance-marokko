@@ -7,7 +7,7 @@ mixin header(isMainPage, currentPage, hasBanner, tallBanner, title, pageTitle)
         +picture(hasBanner)
     .container
       .header__inner
-        h1.visually-hidden #{pageTitle}
+        //- h1.visually-hidden #{pageTitle}
         +mainNav({links: mainNavLinks, currentPage})
         .header__container
           if isMainPage

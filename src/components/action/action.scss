@@ -28,7 +28,7 @@
   }
 
   &__info {
-    padding-right: 20px;
+    padding-right: 7px;
 
     h2 {
       margin: 0;
@@ -39,8 +39,8 @@
 
     p {
       margin: 0;
-      font-size: mixin.rem(15);
-      line-height: mixin.rem(20);
+      font-size: mixin.rem(14);
+      line-height: mixin.rem(18);
       font-weight: 300;
     }
 

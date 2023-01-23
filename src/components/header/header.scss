@@ -7,11 +7,6 @@
   position: relative;
   background: var.$color-dim-gray;
   color: var.$color-white;
-  overflow: hidden;
-
-  .scroll-lock & {
-    overflow: visible;
-  }
 
   &__inner {
     display: flex;
@@ -21,11 +16,7 @@
     min-height: 94px;
 
     @include mixin.min-desktop {
-      min-height: 120px;
-    }
-
-    @include mixin.min-desktop-wide {
-      min-height: 160px;
+      min-height: 207px;
     }
   }
 
@@ -82,15 +73,24 @@
 
   &__link {
     position: relative;
-    font-size: mixin.rem(9);
-    line-height: mixin.rem(12);
+    font-size: mixin.rem(12);
+    line-height: mixin.rem(16);
 
     &::before {
       @include mixin.pseudo;
       left: -10px;
       right: -10px;
-      bottom: -15px;
+      bottom: -10px;
+      background-color: rgba($color: var.$color-dim-gray, $alpha: 0.4);
       top: 0;
+      border: 1px solid rgba($color: var.$color-dim-gray, $alpha: 0.7);
+    }
+
+    @include mixin.min-desktop {
+      &::before {
+        left: -20px;
+        right: -20px;
+      }
     }
   }
 
@@ -175,7 +175,7 @@
 
     #{$c}__link {
       &::before {
-        top: -15px;
+        top: -10px;
       }
 
       @include mixin.min-tablet {

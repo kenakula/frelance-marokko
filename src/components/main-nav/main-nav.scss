@@ -16,7 +16,8 @@
     min-height: 320px;
     background-color: rgba($color: var.$color-ghost-white, $alpha: 0.8);
     opacity: 0;
-    transform: translateX(-100%);
+    pointer-events: none;
+    // transform: translate(-100%);
     backdrop-filter: blur(8px);
     transition: transform var.$default-transition-settings,
       opacity var.$long-transition-duration var.$default-transition-easing;
@@ -128,6 +129,7 @@
   &.active {
     #{$c}__list {
       opacity: 1;
+      pointer-events: all;
       transform: translateX(0);
     }
   }

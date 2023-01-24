@@ -55,7 +55,7 @@
     &--right {
       position: absolute;
       top: 109px;
-      right: 25px;
+      right: var.$gutter-mobile;
       width: 48%;
       aspect-ratio: 180 / 211;
 
@@ -67,6 +67,7 @@
 
       @include mixin.min-tablet {
         top: 140px;
+        right: var.$gutter-tablet;
       }
     }
 
@@ -219,11 +220,13 @@
   &__bottom-slider {
     .swiper {
       padding-bottom: 20px;
-      margin-left: -25px;
-      margin-right: -25px;
+      margin-left: -#{var.$gutter-mobile};
+      margin-right: -#{var.$gutter-mobile};
 
       @include mixin.min-tablet {
         padding-bottom: 40px;
+        margin-left: -#{var.$gutter-tablet};
+        margin-right: -#{var.$gutter-tablet};
       }
 
       @include mixin.min-desktop {
@@ -335,6 +338,7 @@
     }
 
     .swiper-button-next {
+      @include mixin.button-reset;
       top: auto;
       left: auto;
       right: 25px;

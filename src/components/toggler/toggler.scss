@@ -77,12 +77,17 @@
     }
   }
 
-  @include mixin.min-laptop {
+  @include mixin.min-tablet {
+    left: var.$gutter-tablet;
     width: 40px;
 
     span {
       width: 40px;
     }
+  }
+
+  @include mixin.min-tablet {
+    @include mixin.interactive-opacity;
   }
 
   @include mixin.min-desktop {

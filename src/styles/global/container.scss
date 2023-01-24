@@ -3,9 +3,13 @@
 
 .container {
   width: 100%;
-  max-width: var.$desktop-wide;
+  max-width: var.$container;
   margin: 0 auto;
   padding: 0 var.$gutter-mobile;
+
+  @include mixin.min-tablet {
+    padding: 0 var.$gutter-tablet;
+  }
 
   @include mixin.min-desktop {
     padding: 0 var.$gutter-desktop;

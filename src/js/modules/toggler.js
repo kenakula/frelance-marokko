@@ -5,9 +5,11 @@ export const initTogglers = () => {
   let targetEl;
   let togglerEl;
   let switchableClass;
+
   const onDocumentClick = e => {
     if (opened) {
       const target = e.target.closest('.main-nav');
+
       if (!target) {
         document.body.classList.remove(scrollLockClass);
         const scrollPos = document.body.getAttribute('data-scroll');
@@ -18,14 +20,17 @@ export const initTogglers = () => {
       }
     }
   };
+
   const switchClass = (scrollLock, togglerEl, targetEl, switchableClass) => {
     const isActive = targetEl.classList.contains(switchableClass);
     const scrollLockClass = scrollLock && 'scroll-lock';
+
     if (!isActive) {
       const top = document.documentElement.scrollTop;
       targetEl.classList.add(switchableClass);
       togglerEl.classList.add('toggler--close');
       document.body.setAttribute('data-scroll', top.toString());
+
       setTimeout(() => {
         document.body.classList.add(scrollLockClass);
         opened = true;
@@ -41,9 +46,11 @@ export const initTogglers = () => {
   };
   const initToggler = e => {
     const target = e.target.closest('[data-toggler]');
+
     if (!target) {
       return;
     }
+
     const targetId = target.dataset.targetId;
     togglerEl = target;
     targetEl = document.querySelector(`#${targetId}`);
@@ -53,8 +60,11 @@ export const initTogglers = () => {
     if (!targetEl) {
       return;
     }
+
     switchClass(lockScrolling, target, targetEl, switchableClass);
+
     window.addEventListener('click', onDocumentClick);
+
     if (lockScrolling) {
       window.addEventListener('resize', () => {
         if (window.matchMedia(`(min-width: ${breakpoint ?? 768}px)`).matches) {
@@ -65,6 +75,7 @@ export const initTogglers = () => {
       });
     }
   };
+
   togglers.forEach(toggler => {
     toggler.addEventListener('click', initToggler);
   });

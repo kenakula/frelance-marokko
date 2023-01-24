@@ -10,11 +10,7 @@ mixin header(isMainPage, currentPage, hasBanner, tallBanner, title, pageTitle)
         //- h1.visually-hidden #{pageTitle}
         +mainNav({links: mainNavLinks, currentPage})
         .header__container
-          if isMainPage
-            a.header__logo.header__logo--main-page(aria-label="Логотип салона")
-              +logo()
-          else
-            a.header__logo(href="/home.html", aria-label="На главную")
-              +logo()
+          a.header__logo(href="/home.html", aria-label="На главную")
+            +logo()
           h2.header__title #{blockTitle}
         a.header__link(href="https://some-site.com") Запись в студию

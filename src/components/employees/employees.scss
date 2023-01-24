@@ -7,9 +7,15 @@
   &__slider {
     margin: 0 -#{var.$gutter-mobile};
     padding: 0 #{var.$gutter-mobile} 40px;
+
+    @include mixin.min-tablet {
+      margin-left: -#{var.$gutter-tablet};
+      margin-right: -#{var.$gutter-tablet};
+    }
   }
 
   &__slider-button {
+    @include mixin.button-reset;
     top: auto;
     left: auto;
     right: 25px;

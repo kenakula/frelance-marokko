@@ -55,8 +55,8 @@
     }
 
     @include mixin.min-desktop-wide {
+      left: 36px;
       top: 105px;
-      left: var.$gutter-desktop-wide;
       width: 36%;
     }
   }
@@ -68,7 +68,7 @@
       margin: 0;
       position: absolute;
       right: var.$gutter-mobile;
-      bottom: 200px;
+      bottom: 160px;
       display: flex;
       flex-direction: column;
       width: 26%;
@@ -86,7 +86,7 @@
     }
 
     @include mixin.min-desktop-wide {
-      // bottom: 350px;
+      bottom: 135px;
       right: var.$gutter-desktop-wide;
 
       #{$c}__text {

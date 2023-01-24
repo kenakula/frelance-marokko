@@ -26,7 +26,7 @@
       background-size: cover;
     }
 
-    @include mixin.min-tablet {
+    @include mixin.min-laptop {
       right: 123px;
       width: 40%;
       background-size: cover;

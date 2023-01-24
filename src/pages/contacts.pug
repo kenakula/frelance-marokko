@@ -1,5 +1,8 @@
 extends ../pug/layout.pug
 
+append head
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=ef1d86bf-0093-41b0-b77c-5143be254efa&lang=ru_RU" type="text/javascript")
+
 block variables
   -
     // TODO описание страницы
@@ -9,7 +12,33 @@ block variables
     const title = 'MAROKKO | Контакты';
     const pageDescription = 'Page description';
     const pageKeywords = 'Page keywords';
+    const pageTitle = 'Марокко. Контакты студии.';
+    const noFooter = true;
+    const image = {path: '', image: 'image-contacts', format: 'jpg', width: 325, height: 353, alt: "Дверь нашей студии"};
 
 block main
-  section.container
+  h1.visually-hidden #{pageTitle}
+  section.section.contacts
+    .container
+      .contacts__inner
+        h2.contacts__title Контакты студии
+        address.contacts__address
+          p.contacts__address-text Санкт-Петербург, Репищева улица, д. 10, корп. 2
+          a(href="tel:+79668624159") +7 (966) 862-4159
+          .contacts__time
+            p График работы:
+            ul.contacts__time-list
+              li 9:00 - 21:00
+        .contacts__bottom
+          .contacts__map
+            +map()
+          .contacts__image
+            +picture(image)
+        .contacts__socials
+          +socials()
 
+
+append scripts
+
+mixin map()
+  iframe(src="https://yandex.ru/map-widget/v1/?azimuth=2.4011912599703225&ll=30.277807%2C60.021218&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjA5MjU5NzU5Ek%2FQoNC%2B0YHRgdC40Y8sINCh0LDQvdC60YIt0J%2FQtdGC0LXRgNCx0YPRgNCzLCDQoNC10L%2FQuNGJ0LXQstCwINGD0LvQuNGG0LAsIDEw0LoyIgoN8DjyQRW7FXBC&tilt=0.8726646259971648&z=17.14" width="375" height="300" frameborder="0" allowfullscreen="true" style="position:relative;")

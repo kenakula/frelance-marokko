@@ -62,7 +62,8 @@ html(class="no-js" lang=pageLang)
     +header(isMainPage, page, hasBanner, tallBanner, blockTitle, pageTitle)
     main
       block main
-    +footer()
+    if !noFooter
+      +footer()
 
     block scripts
       script(src="js/vendor.js")

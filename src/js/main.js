@@ -1,6 +1,5 @@
 import Micromodal from 'micromodal';
-import { initTogglers, initVideos } from './modules';
-import { initSliders } from './modules/sliders';
+import { initTogglers, initVideos, initSliders } from './modules';
 
 document.addEventListener('DOMContentLoaded', () => {
   Micromodal.init({ disableFocus: true, disableScroll: true });

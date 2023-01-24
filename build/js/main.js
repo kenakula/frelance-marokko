@@ -13324,8 +13324,6 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var micromodal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! micromodal */ "../node_modules/micromodal/dist/micromodal.es.js");
 /* harmony import */ var _modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules */ "./js/modules/index.js");
-/* harmony import */ var _modules_sliders__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/sliders */ "./js/modules/sliders.js");
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13334,7 +13332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     disableScroll: true
   });
   (0,_modules__WEBPACK_IMPORTED_MODULE_1__.initTogglers)();
-  (0,_modules_sliders__WEBPACK_IMPORTED_MODULE_2__.initSliders)();
+  (0,_modules__WEBPACK_IMPORTED_MODULE_1__.initSliders)();
   (0,_modules__WEBPACK_IMPORTED_MODULE_1__.initVideos)();
 });
 })();

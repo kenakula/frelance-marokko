@@ -1,0 +1,87 @@
+@use "../../styles/mixins" as mixin;
+@use "../../styles/variables" as var;
+
+.page-404 {
+  $c: &;
+
+  &__text {
+    padding: 120px 0;
+  }
+
+  &__title {
+    margin: 0 0 20px 0;
+    font-size: mixin.rem(54);
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: 3%;
+    text-align: center;
+
+    @include mixin.min-laptop {
+      font-size: mixin.rem(80);
+    }
+
+    @include mixin.min-desktop {
+      font-size: mixin.rem(100);
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: mixin.rem(14);
+    text-align: center;
+
+    @include mixin.min-laptop {
+      font-size: mixin.rem(24);
+    }
+
+    @include mixin.min-desktop {
+      font-size: mixin.rem(30);
+    }
+  }
+
+  &__nav {
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 270px;
+    background-color: var.$color-dim-gray;
+
+    @include mixin.min-laptop {
+      max-width: 60vw
+    }
+
+    @include mixin.min-desktop {
+      padding: 60px
+    }
+  }
+
+  &__list {
+    @include mixin.list-reset;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    @include mixin.min-laptop {
+      row-gap: 30px;
+    }
+
+    @include mixin.min-desktop {
+      row-gap: 50px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+    a {
+      color: var.$color-white;
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.interactive-opacity;
+
+      a {
+        font-size: mixin.rem(24);
+      }
+    }
+  }
+}

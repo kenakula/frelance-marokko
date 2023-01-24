@@ -18,4 +18,8 @@
   @include mixin.min-desktop-wide {
     padding: 105px 0;
   }
+
+  &.section--nopad {
+    padding: 0;
+  }
 }

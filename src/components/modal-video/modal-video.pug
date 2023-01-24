@@ -1,0 +1,15 @@
+mixin modalVideo({id, title, video})
+  - const {path, name, alt, formats} = video;
+
+  .modal.modal--video.micromodal-slide(id= id, aria-hidden="true")
+    .modal__overlay(tabindex="-1", data-micromodal-close)
+      .modal__container(role="dialog", aria-modal="true", aria-labelledby= `${id}-title`)
+        header.modal__header
+          h2.visually-hidden(id= `${id}-title`) #{title}
+          button.modal__close(type="button", aria-label="Закрыть окно", data-micromodal-close)
+        .modal__content(id= `${id}-content`)
+          video(controls, data-video)
+            each item in formats
+              source(src = `video${path}/${name}.${item}`, type = `video/${item}`)
+            if alt
+              p #{alt}

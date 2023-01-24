@@ -1,5 +1,8 @@
 extends ../pug/layout.pug
 
+append head
+  link(rel="stylesheet", href="https://cdn.plyr.io/3.7.3/plyr.css")
+
 block variables
   -
     // TODO описание страницы
@@ -10,10 +13,81 @@ block variables
     const pageDescription = 'Page description';
     const pageKeywords = 'Page keywords';
     const pageTitle = 'Марокко. Мастера студии.';
+    const mediaList2 = [
+      {
+        image: {
+          path: '',
+          image: 'image-service-7',
+          format: 'jpg',
+          width: 325,
+          height: 254,
+          altText: 'Мастер Мария',
+        }
+      }
+    ]
+    const mediaList = [
+      {
+        image: {
+          path: '',
+          image: 'image-nails-4',
+          format: 'jpg',
+          width: 325,
+          height: 254,
+          altText: 'Мастер Мария',
+        }
+      },
+      {
+        image: {
+          path: '',
+          image: 'image-nails-2',
+          format: 'jpg',
+          width: 661,
+          height: 752,
+          altText: 'Мастер Мария',
+        },
+        mod: 'mobile-hidden'
+      },
+      {
+        image: {
+          path: '',
+          image: 'image-nails-6',
+          format: 'jpg',
+          width: 163,
+          height: 127,
+          altText: 'Мастер Мария',
+        }
+      },
+      {
+        video: {
+          path: '',
+          name: 'cat_in_the_sun',
+          formats: ['mp4'],
+          poster: 'img/image-nails-4.jpg',
+          alt: 'Текст на случай ошибки',
+          modalId: 'modal-video-1'
+        },
+        mod: 'video',
+      },
+      {
+        video: {
+          path: '',
+          name: 'cat_in_the_sun',
+          formats: ['mp4'],
+          poster: 'img/image-nails-6.jpg',
+          alt: 'Текст на случай ошибки',
+          modalId: 'modal-video-2'
+        },
+        mod: 'video',
+      },
+    ]
 
 block main
   //- h1.visually-hidden #{pageTitle}
   +mastersBlock('Мастера ногтевого сервиса', nailsMasters)
-  +mastersMedia()
+  +mastersMedia(mediaList).section--nopad
+  +mastersBlock('Мастера ногтевого сервиса', browsMasters)
+  +modalVideo({id: 'modal-video-1', title: 'video 1', video: mediaList[4].video})
+  +modalVideo({id: 'modal-video-2', title: 'video 2', video: mediaList[4].video})
+  +mastersMedia(mediaList2).section--nopad
 
 

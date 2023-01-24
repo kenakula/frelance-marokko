@@ -72,6 +72,8 @@
     ]
   },
   "dependencies": {
+    "micromodal": "^0.4.10",
+    "plyr": "^3.7.3",
     "swiper": "^8.4.6"
   }
 }

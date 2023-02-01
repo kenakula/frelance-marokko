@@ -114,27 +114,27 @@
         display: none;
       }
 
-      svg {
+      img {
         width: 270px;
         height: 32px;
       }
 
       @include mixin.min-tablet {
-        svg {
+        img {
           width: 370px;
           height: 40px;
         }
       }
 
       @include mixin.min-laptop {
-        svg {
+        img {
           width: 680px;
           height: 85px;
         }
       }
 
       @include mixin.min-desktop-wide {
-        svg {
+        img {
           width: 975px;
           height: 108px;
         }
@@ -261,7 +261,7 @@
   @include mixin.min-laptop {
     &:not(#{$c}--banner) {
       #{$c}__logo {
-        svg {
+        img {
           width: 200px;
           height: 33px;
         }
@@ -278,7 +278,7 @@
   @include mixin.min-desktop {
     &:not(#{$c}--banner) {
       #{$c}__logo {
-        svg {
+        img {
           width: 385px;
           height: 44px;
         }

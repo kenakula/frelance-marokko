@@ -7,10 +7,9 @@ mixin header(isMainPage, currentPage, hasBanner, tallBanner, title, pageTitle)
         +picture(hasBanner)
     .container
       .header__inner
-        //- h1.visually-hidden #{pageTitle}
         +mainNav({links: mainNavLinks, currentPage})
         .header__container
           a.header__logo(href="/home.html", aria-label="На главную")
-            +logo()
+            +img({path: '', image: 'logo', format: 'svg', width: 129, height: 16, altText: 'Логотип салона'})
           h2.header__title #{blockTitle}
         a.header__link(href="https://some-site.com") Запись в студию

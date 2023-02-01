@@ -81,12 +81,18 @@
     }
   }
 
+  &__phones {
+    @include mixin.list-reset;
+    margin-bottom: 20px;
+  }
+
   &__time {
     margin-bottom: 20px;
     line-height: 1;
 
     &-list {
       @include mixin.list-reset;
+      padding-top: 5px;
     }
 
     p {

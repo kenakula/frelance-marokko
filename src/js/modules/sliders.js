@@ -38,7 +38,7 @@ export const initSliders = () => {
 
     const onWindowResize = () => {
       if (destroyBreakpoint.matches) {
-        sliderInst.destroy(true, true);
+        sliderInst.destroy();
       } else {
         sliderInst = new Swiper(node, options);
       }
@@ -49,7 +49,7 @@ export const initSliders = () => {
     window.addEventListener('resize', resizeWatcher);
 
     if (destroyBreakpoint.matches) {
-      sliderInst.destroy(true, true);
+      sliderInst.destroy();
     }
   };
 

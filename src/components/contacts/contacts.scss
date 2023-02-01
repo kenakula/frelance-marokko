@@ -25,6 +25,11 @@
     }
   }
 
+  &__phones {
+    @include mixin.list-reset;
+    margin-bottom: 20px;
+  }
+
   &__address {
     font-style: normal;
     text-align: center;

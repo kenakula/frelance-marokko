@@ -75,12 +75,12 @@
   &__name {
     margin: 0 0 5px 0;
     padding: 0 10px;
-    font-size: mixin.rem(18);
+    font-size: mixin.rem(16);
     font-weight: 500;
     text-align: center;
 
     @include mixin.min-tablet {
-      font-size: mixin.rem(22);
+      font-size: mixin.rem(20);
     }
 
     @include mixin.min-desktop {

@@ -21,3 +21,5 @@ mixin footer()
             +socials()
         .footer__bottom
           a(href="politics.html") Политика конфиденциальности
+        if page === 'home'
+          +credentials()

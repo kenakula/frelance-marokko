@@ -1,0 +1,32 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.scroll-button {
+  @include mixin.button-reset;
+
+  z-index: var.$layer-scroll-button;
+  position: fixed;
+  bottom: var.$gutter-mobile;
+  right: var.$gutter-mobile;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var.$color-nobel;
+  box-shadow: 0 3px 10px rgba($color: #000000, $alpha: 0.5);
+  background-image: url("../img/icon-arrow-up.svg");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var.$default-transition-settings;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include mixin.min-laptop {
+    @include mixin.interactive-opacity;
+  }
+}

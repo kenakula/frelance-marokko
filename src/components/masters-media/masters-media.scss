@@ -8,16 +8,39 @@
     @include mixin.list-reset;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px;
+    grid-auto-rows: 130px;
     column-gap: 10px;
     row-gap: 10px;
 
+    @media (min-width: 480px) {
+      grid-template-rows: 250px;
+      grid-auto-rows: 180px;
+    }
+
+    @include mixin.min-tablet {
+      grid-template-rows: 410px;
+      grid-auto-rows: 220px;
+    }
+
     @include mixin.min-laptop {
       grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: 450px;
+      grid-auto-rows: 250px;
       column-gap: 20px;
       row-gap: 20px;
     }
 
-    @include mixin.min-laptop {
+    @include mixin.min-desktop {
+      grid-template-rows: 580px;
+      grid-auto-rows: 350px;
+      column-gap: 40px;
+      row-gap: 40px;
+    }
+
+    @include mixin.min-desktop-wide {
+      grid-template-rows: 660px;
+      grid-auto-rows: 400px;
       column-gap: 40px;
       row-gap: 40px;
     }
@@ -74,6 +97,7 @@
 
   &__video {
     position: relative;
+    width: 100%;
     cursor: pointer;
 
     &::before {
@@ -95,6 +119,7 @@
 
     video {
       height: 100%;
+      width: 100%;
       object-fit: cover;
     }
 

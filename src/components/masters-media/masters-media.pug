@@ -26,14 +26,17 @@ mixin mastersMedia(list)
   section.section.masters-media&attributes(attributes)
     .container
       h1.visually-hidden Примеры работ наших мастеров
-      ul.masters-media__list(class= single ? 'masters-media__list--single' : null)
-        each item in list
-          - const {image, video, mod} = item;
-          .masters-media__item(class= mod ? `masters-media__item--${mod}` : null)
-            if image
-              +picture(image)
-            if video
-              .masters-media__video(data-micromodal-trigger= video.modalId)
-                +icon({name: 'icon-video', width: 40, height: 40})
-                video(poster= video.poster, src= `video${video.path}/${video.name}.${video.formats[0]}`, preload="none")
+      .masters-media__list.container-fluid(class= single ? 'masters-media__list--single' : null)
+        each item, index in list
+          +mediaItem(item)
 
+
+mixin mediaItem({image, video, mod})
+
+  .masters-media__item(class= mod ? `masters-media__item--${mod}` : null)&attributes(attributes)
+    if image
+      +picture(image)
+    if video
+      .masters-media__video(data-micromodal-trigger= video.modalId)
+        +icon({name: 'icon-video', width: 40, height: 40})
+        video(poster= video.poster, src= `video${video.path}/${video.name}.${video.formats[0]}`, preload="none")

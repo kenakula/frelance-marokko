@@ -1,6 +1,21 @@
 import Plyr from 'plyr';
+import Micromodal from 'micromodal';
 
 export const initVideos = () => {
+  const videosMap = new Map();
+
+  Micromodal.init({
+    disableFocus: true,
+    disableScroll: true,
+    onClose: modal => {
+      const video = videosMap.get(modal.id);
+
+      if (video) {
+        video.stop();
+      }
+    },
+  });
+
   const videos = document.querySelectorAll('[data-video]');
 
   if (!videos.length) {
@@ -8,7 +23,9 @@ export const initVideos = () => {
   }
 
   videos.forEach(video => {
-    new Plyr(video, {
+    const modal = video.closest('.modal');
+
+    const plyr = new Plyr(video, {
       controls: [
         'settings',
         'play',
@@ -19,5 +36,7 @@ export const initVideos = () => {
       ],
       settings: ['quality', 'speed'],
     });
+
+    videosMap.set(modal.id, plyr);
   });
 };

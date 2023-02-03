@@ -21,6 +21,15 @@ export const initTogglers = () => {
     }
   };
 
+  const onLinkClick = e => {
+    const target = e.target.closest('a');
+
+    if (target) {
+      targetEl.classList.remove(switchableClass);
+      togglerEl.classList.remove('toggler--close');
+    }
+  };
+
   const switchClass = (scrollLock, togglerEl, targetEl, switchableClass) => {
     const isActive = targetEl.classList.contains(switchableClass);
     const scrollLockClass = scrollLock && 'scroll-lock';
@@ -28,6 +37,7 @@ export const initTogglers = () => {
     if (!isActive) {
       const top = document.documentElement.scrollTop;
       targetEl.classList.add(switchableClass);
+      targetEl.addEventListener('click', onLinkClick);
       togglerEl.classList.add('toggler--close');
       document.body.setAttribute('data-scroll', top.toString());
 
@@ -40,6 +50,7 @@ export const initTogglers = () => {
       const scrollPos = document.body.getAttribute('data-scroll');
       window.scrollTo({ top: Number(scrollPos) });
       targetEl.classList.remove(switchableClass);
+      targetEl.removeEventListener('click', onLinkClick);
       togglerEl.classList.remove('toggler--close');
       opened = false;
     }

@@ -34,6 +34,7 @@
   border: none;
   padding: 0;
   background-color: var.$color-transparent;
+  -webkit-tap-highlight-color: var.$color-transparent;
   cursor: pointer;
 }
 

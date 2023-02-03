@@ -17,6 +17,7 @@ block variables
     const image = {path: '', image: 'image-contacts', format: 'jpg', width: 325, height: 353, alt: "Дверь нашей студии"};
 
 block main
+  +scrollButton()
   h1.visually-hidden #{pageTitle}
   section.section.contacts
     .container
@@ -43,4 +44,4 @@ block main
 append scripts
 
 mixin map()
-  iframe(src="https://yandex.ru/map-widget/v1/?azimuth=2.4011912599703225&ll=30.277807%2C60.021218&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjA5MjU5NzU5Ek%2FQoNC%2B0YHRgdC40Y8sINCh0LDQvdC60YIt0J%2FQtdGC0LXRgNCx0YPRgNCzLCDQoNC10L%2FQuNGJ0LXQstCwINGD0LvQuNGG0LAsIDEw0LoyIgoN8DjyQRW7FXBC&tilt=0.8726646259971648&z=17.14" width="375" height="300" frameborder="0" allowfullscreen="true" style="position:relative;")
+  iframe(src="https://yandex.ru/map-widget/v1/?azimuth=2.4011912599703225&ll=30.277807%2C60.021218&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjA5MjU5NzU5Ek%2FQoNC%2B0YHRgdC40Y8sINCh0LDQvdC60YIt0J%2FQtdGC0LXRgNCx0YPRgNCzLCDQoNC10L%2FQuNGJ0LXQstCwINGD0LvQuNGG0LAsIDEw0LoyIgoN8DjyQRW7FXBC&tilt=0.8726646259971648&z=17.14" width="375" height="300" allow="fullscreen" style="position:relative;")

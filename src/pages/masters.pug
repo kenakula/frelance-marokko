@@ -60,7 +60,7 @@ block variables
       {
         video: {
           path: '',
-          name: 'cat_in_the_sun',
+          name: 'video-nails-1',
           formats: ['mp4'],
           poster: 'img/image-nails-4.jpg',
           alt: 'Текст на случай ошибки',
@@ -71,7 +71,7 @@ block variables
       {
         video: {
           path: '',
-          name: 'cat_in_the_sun',
+          name: 'video-nails-2',
           formats: ['mp4'],
           poster: 'img/image-nails-6.jpg',
           alt: 'Текст на случай ошибки',
@@ -82,6 +82,7 @@ block variables
     ]
 
 block main
+  +scrollButton()
   h1.visually-hidden #{pageTitle}
   +mastersBlock('Мастера ногтевого сервиса', nailsMasters)
   +mastersMedia(mediaList).section--nopad

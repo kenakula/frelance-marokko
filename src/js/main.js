@@ -3,6 +3,7 @@ import {
   initVideos,
   initSliders,
   initScrollButton,
+  initMap,
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,4 +11,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSliders();
   initVideos();
   initScrollButton();
+  initMap();
 });

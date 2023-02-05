@@ -22,8 +22,6 @@ export const initSliders = () => {
       modules: [Navigation],
       spaceBetween: +spaceBetween,
       slidesPerView,
-      observer: true,
-      observeParents: true,
       breakpoints: breakpoints ? JSON.parse(breakpoints) : undefined,
       navigation: {
         nextEl: '.swiper-button-next',
@@ -38,7 +36,7 @@ export const initSliders = () => {
 
     const onWindowResize = () => {
       if (destroyBreakpoint.matches) {
-        sliderInst.destroy();
+        sliderInst.destroy(true, true);
       } else {
         sliderInst = new Swiper(node, options);
       }
@@ -46,11 +44,11 @@ export const initSliders = () => {
 
     const resizeWatcher = debounce(onWindowResize, 300);
 
-    window.addEventListener('resize', resizeWatcher);
-
     if (destroyBreakpoint.matches) {
-      sliderInst.destroy();
+      sliderInst.destroy(true, true);
     }
+
+    window.addEventListener('resize', resizeWatcher);
   };
 
   sliders.forEach(slider => initialize(slider));

@@ -67,7 +67,7 @@
     @include mixin.min-laptop {
       margin: 0;
       position: absolute;
-      right: var.$gutter-mobile;
+      right: var.$gutter-tablet;
       bottom: 160px;
       display: flex;
       flex-direction: column;

@@ -84,6 +84,7 @@
 
       &::before {
         bottom: 6px;
+        height: 3px;
       }
     }
   }
@@ -95,7 +96,7 @@
       font-size: mixin.rem(50);
 
       &::before {
-        bottom: 10px;
+        bottom: 12px;
       }
     }
   }

@@ -181,9 +181,9 @@
       &::before {
         @include mixin.pseudo;
         right: -20px;
-        top: 25px;
+        top: 24px;
         width: 3px;
-        height: calc(100% - 50px);
+        height: calc(100% - 51px);
         background-color: var.$color-dim-gray;
       }
     }
@@ -249,6 +249,17 @@
         line-height: mixin.rem(20);
         color: var.$color-gun-powder;
 
+        &[data-hidden] {
+          opacity: 0;
+          transition: opacity 0.1s ease;
+        }
+
+        @include mixin.min-tablet {
+          &[data-hidden] {
+            opacity: 1;
+          }
+        }
+
         @include mixin.min-laptop {
           font-size: mixin.rem(24);
           line-height: mixin.rem(32);
@@ -271,6 +282,12 @@
             background-color: var.$color-dim-gray;
             transform: translateY(50%);
           }
+        }
+      }
+
+      &.transitioned {
+        & [data-hidden] {
+          opacity: 1;
         }
       }
 
@@ -343,13 +360,16 @@
       left: auto;
       right: 25px;
       bottom: 10px;
-      width: 110px;
+      width: 135px;
       height: 40px;
+      padding-right: 25px;
+      margin-right: -25px;
       background-image: url("../img/long-arrow-right.svg");
       background-color: var.$color-quartz;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: contain;
+      background-position: -25px;
 
       &::after {
         display: none;

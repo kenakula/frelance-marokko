@@ -28,15 +28,24 @@
   &__phones {
     @include mixin.list-reset;
     margin-bottom: 20px;
+
+    li {
+      margin-bottom: 2px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__address {
     font-style: normal;
     text-align: center;
     font-size: mixin.rem(13);
+    line-height: 1.3;
 
     &-text {
-      margin: 0 0 10px 0;
+      margin: 0 0 15px 0;
     }
 
     &>a {
@@ -46,7 +55,6 @@
 
     @include mixin.min-tablet {
       font-size: mixin.rem(22);
-      line-height: 1.3;
 
       &-text {
         margin-bottom: 20px;
@@ -92,6 +100,23 @@
 
     &-list {
       @include mixin.list-reset;
+      padding-top: 5px;
+
+      @include mixin.min-laptop {
+        padding-top: 10px;
+
+        li {
+          margin-bottom: 2px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        padding-top: 15px;
+      }
     }
 
     p {
@@ -110,12 +135,18 @@
       top: 0;
       height: 1px;
       width: 55%;
-      background-color: var.$color-gun-powder;
+      background-color: var.$color-dim-gray;
       transform: translateX(-50%);
     }
 
     @include mixin.min-tablet {
       margin-top: 40px;
+    }
+
+    @include mixin.min-laptop {
+      &::before {
+        height: 3px;
+      }
     }
 
     @include mixin.min-desktop {

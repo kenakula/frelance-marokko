@@ -8,6 +8,28 @@ export const initSliders = () => {
     return;
   }
 
+  const slideChangeCb = swiper => {
+    // const activeSlides = swiper.el.querySelectorAll('.swiper-slide-active');
+
+    // if (activeSlides.length) {
+    //   activeSlides.forEach(slide => {
+    //     slide.classList.add('transitioned');
+    //   });
+    // }
+
+    const slides = swiper.slides;
+
+    if (slides.length) {
+      slides.forEach(slide => {
+        if (slide.classList.contains('swiper-slide-active')) {
+          slide.classList.add('transitioned');
+        } else {
+          slide.classList.remove('transitioned');
+        }
+      });
+    }
+  };
+
   const initialize = node => {
     let spaceBetween = node.dataset.spaceBetween ?? 25;
     let slidesPerView = node.dataset.view ?? 1;
@@ -25,6 +47,9 @@ export const initSliders = () => {
       breakpoints: breakpoints ? JSON.parse(breakpoints) : undefined,
       navigation: {
         nextEl: '.swiper-button-next',
+      },
+      on: {
+        slideChangeTransitionEnd: slideChangeCb,
       },
     };
 

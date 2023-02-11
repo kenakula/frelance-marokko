@@ -59,7 +59,7 @@
     }
 
     p {
-      margin: 0 0 5px 0;
+      margin: 0 0 15px 0;
       font-size: mixin.rem(13);
       line-height: 1.35;
 
@@ -68,19 +68,21 @@
       }
 
       @include mixin.min-tablet {
-        margin: 0 0 10px 0;
         font-size: mixin.rem(18);
       }
 
       @include mixin.min-desktop {
-        margin: 0 0 10px 0;
+        margin: 0 0 20px 0;
         font-size: mixin.rem(28);
       }
 
       @include mixin.min-desktop-wide {
-        margin: 0 0 10px 0;
         font-size: mixin.rem(34);
       }
+    }
+
+    @include mixin.min-laptop {
+      margin-bottom: 45px;
     }
   }
 

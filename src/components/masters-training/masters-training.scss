@@ -1,0 +1,133 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.masters-training {
+  $c: &;
+
+  margin-top: 40px;
+  margin-bottom: 15px;
+  background-color: var.$color-dim-gray;
+
+  &__title {
+    @include mixin.font(16, 21);
+    margin: 0 auto 21px auto;
+    max-width: 265px;
+    text-align: center;
+    font-weight: 300;
+    color: var.$color-white;
+
+    b {
+      font-weight: 600;
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(20, 24);
+      margin-bottom: 40px;
+      max-width: 350px;
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(32, 40);
+      margin-bottom: 60px;
+      max-width: none;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(46, 56);
+      margin-bottom: 76px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    @include mixin.min-laptop {
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    @include mixin.min-desktop {
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+
+    @include mixin.min-desktop-wide {
+      margin: 0 auto;
+      max-width: none;
+    }
+  }
+
+  &__info {
+    @include mixin.font(9, 11);
+    position: relative;
+    margin: 0 auto 0 0;
+    max-width: 120px;
+    color: var.$color-quartz;
+
+    &::after {
+      @include mixin.pseudo;
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translate(100%, -50%);
+      width: 55px;
+      height: 20px;
+      background-image: url("../img/middle-arrow-right-light.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(110deg) brightness(109%) contrast(101%);
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(18, 20);
+      max-width: 240px;
+
+      &::after {
+        width: 160px;
+      }
+    }
+
+    @include mixin.min-laptop {
+      &::after {
+        right: -30px;
+        width: 100px;
+      }
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(28, 34);
+      max-width: 370px;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(43, 52);
+      max-width: 550px;
+
+      &::after {
+        width: 180px;
+        background-size: cover;
+      }
+    }
+  }
+
+  &__button {
+    @include mixin.font(8, 10);
+    padding: 0 20px;
+    max-width: 120px;
+    font-weight: 400;
+
+    @include mixin.min-desktop {
+      @include mixin.font(30, 36);
+      padding: 20px 40px;
+      max-width: 400px;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(36, 44);
+      padding: 42px 120px;
+      max-width: 650px;
+    }
+  }
+}

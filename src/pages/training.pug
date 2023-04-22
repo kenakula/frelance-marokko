@@ -1,0 +1,17 @@
+extends ../pug/layout.pug
+
+block variables
+  -
+    const isMainPage = false;
+    const page = 'training';
+    const pageLang = 'ru-Ru';
+    const title = 'MAROKKO | Обучение';
+    const pageDescription = 'Page description';
+    const pageKeywords = 'Page keywords';
+    const pageTitle = 'Марокко. Программы обучения.';
+
+block main
+  +scrollButton()
+  h1.visually-hidden #{pageTitle}
+
+

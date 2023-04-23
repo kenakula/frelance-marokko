@@ -1,8 +1,9 @@
 mixin mastersBlock(title, list)
-  section.section.masters-block
+  section.section.masters-block&attributes(attributes)
     .container
       .masters-block__inner
-        +titleLined(title)
+        if title
+          +titleLined(title)
         ul.masters-block__list
           each item in list
             li.masters-block__item
@@ -10,3 +11,7 @@ mixin mastersBlock(title, list)
                 +picture(item.image)
               h3.masters-block__name #{item.name}
               p.masters-block__specialty #{item.specialty}
+              if item.courses
+                ul
+                  each course in item.courses
+                    li #{course}

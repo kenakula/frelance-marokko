@@ -1,0 +1,173 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.training-address {
+  $c: &;
+
+  margin-top: 30px;
+  padding: 33px 0;
+  background-color: var.$color-dim-gray;
+  color: var.$color-white;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__left-col {
+    padding-right: 10px;
+    width: 50%;
+    border-right: 1px solid rgba($color: var.$color-white, $alpha: 0.8);
+
+    @include mixin.min-laptop {
+      padding-right: 50px;
+    }
+
+    @include mixin.min-desktop {
+      padding-right: 50px;
+      border-width: 3px;
+    }
+
+    @include mixin.min-desktop-wide {
+      padding-right: 150px;
+    }
+  }
+
+  &__title {
+    @include mixin.font(13, 16);
+    margin: 0;
+    font-weight: 400;
+
+    @include mixin.min-tablet {
+      @include mixin.font(20, 24);
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(26, 28);
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(36, 42);
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(46, 62);
+    }
+  }
+
+  &__right-col {
+    padding-left: 10px;
+    width: 50%;
+
+    @include mixin.min-laptop {
+      padding-left: 50px;
+    }
+
+    @include mixin.min-desktop-wide {
+      padding-left: 70px;
+    }
+  }
+
+  &__address {
+    @include mixin.font(13, 16);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-style: normal;
+
+    &-text {
+      margin: 0 0 15px 0;
+    }
+
+    &>a {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(20, 24);
+
+      &-text {
+        margin-bottom: 40px;
+      }
+
+      &>a {
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        @include mixin.font(20, 24);
+      }
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(26, 28);
+
+      h3 {
+        @include mixin.font(26, 28);
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(36, 44);
+
+      &>a {
+        margin-bottom: 40px;
+      }
+
+      h3 {
+        @include mixin.font(26, 44);
+      }
+    }
+  }
+
+  &__phones {
+    @include mixin.list-reset;
+    margin-bottom: 20px;
+
+    li {
+      margin-bottom: 2px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include mixin.min-desktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__time {
+    margin-bottom: 20px;
+    line-height: 1;
+
+    &-list {
+      @include mixin.list-reset;
+      padding-top: 5px;
+
+      @include mixin.min-laptop {
+        padding-top: 10px;
+
+        li {
+          margin-bottom: 2px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        padding-top: 15px;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    @include mixin.min-desktop {
+      margin-bottom: 40px;
+    }
+  }
+}

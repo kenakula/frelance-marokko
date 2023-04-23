@@ -1,0 +1,414 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.training-course {
+  $c: &;
+
+  padding: 20px 0;
+  overflow-x: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    margin-bottom: 25px;
+
+    @include mixin.min-tablet {
+      column-gap: 40px;
+    }
+
+    @include mixin.min-laptop {
+      column-gap: 80px;
+      margin-bottom: 40px;
+    }
+
+    @include mixin.min-desktop {
+      column-gap: 100px;
+      margin-bottom: 55px;
+    }
+
+    @include mixin.min-desktop-wide {
+      column-gap: 120px;
+      margin-bottom: 109px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    flex-shrink: 0;
+    width: 43.692%;
+    padding-bottom: 150px;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include mixin.min-tablet {
+      padding-bottom: 35%;
+    }
+
+    @include mixin.min-desktop-wide {
+      width: 41%;
+      padding-bottom: 40%;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include mixin.min-tablet {
+      max-width: 330px;
+    }
+
+    @include mixin.min-laptop {
+      max-width: 450px;
+    }
+
+    @include mixin.min-desktop {
+      max-width: 764px;
+    }
+  }
+
+  &__title {
+    @include mixin.font(9, 12);
+    margin: 0 0 12px 0;
+    font-weight: 400;
+    color: var.$color-gun-powder;
+
+    @include mixin.min-tablet {
+      @include mixin.font(16, 20);
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(24, 32);
+      margin-bottom: 24px;
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(36, 44);
+      margin-bottom: 32px;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(47, 61);
+      margin-bottom: 66px;
+    }
+  }
+
+  &__button {
+    @include mixin.font(7, 8);
+    min-width: 138px;
+    width: auto;
+    min-height: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+
+    @include mixin.min-tablet {
+      max-width: none;
+      width: 100%;
+    }
+
+    @include mixin.min-laptop {
+      margin-bottom: 24px;
+      max-width: none;
+    }
+
+    @include mixin.min-desktop {
+      margin-bottom: 32px;
+      max-width: none;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(36, 42);
+      margin-bottom: 71px;
+      min-height: 147px;
+      max-width: none;
+    }
+  }
+
+  &__price {
+    @include mixin.font(9, 12);
+    margin: 0;
+    font-weight: 400;
+    color: var.$color-gun-powder;
+
+    @include mixin.min-tablet {
+      @include mixin.font(16, 20);
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(24, 32);
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(36, 44);
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(47, 61);
+    }
+  }
+
+  &__days-list {
+    @include mixin.list-reset;
+  }
+
+  &__day {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__day-title {
+    @include mixin.font(9, 11);
+    position: relative;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+
+    span {
+      position: relative;
+
+      &::before {
+        @include mixin.pseudo;
+        left: calc(100% + 20px);
+        bottom: 0;
+        width: 100vw;
+        height: 1px;
+        background-color: var.$color-dim-gray;
+      }
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(14, 14);
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(22, 22);
+      margin-bottom: 30px;
+
+      & span::before {
+        left: calc(100% + 40px);
+      }
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(36, 44);
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(47, 61);
+
+      margin-bottom: 71px;
+
+      & span::before {
+        left: calc(100% + 100px);
+      }
+    }
+  }
+
+  &__day-sections {
+    @include mixin.list-reset;
+  }
+
+  &__section {
+    display: flex;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      @include mixin.font(8, 9);
+      margin: 0;
+      font-weight: 600;
+
+      @include mixin.min-tablet {
+        @include mixin.font(14, 18);
+      }
+
+      @include mixin.min-laptop {
+        @include mixin.font(24, 32);
+      }
+
+      @include mixin.min-desktop {
+        @include mixin.font(32, 38);
+      }
+
+      @include mixin.min-desktop-wide {
+        @include mixin.font(43, 52);
+      }
+    }
+
+    ul {
+      @include mixin.list-reset;
+      @include mixin.font(8, 13);
+
+      @include mixin.min-tablet {
+        @include mixin.font(14, 18);
+      }
+
+      @include mixin.min-laptop {
+        @include mixin.font(24, 32);
+      }
+
+      @include mixin.min-desktop {
+        @include mixin.font(32, 38);
+      }
+
+      @include mixin.min-desktop-wide {
+        @include mixin.font(43, 73);
+      }
+    }
+
+    li {
+      position: relative;
+      margin-bottom: 5px;
+      padding-left: 10px;
+
+      &::before {
+        @include mixin.pseudo;
+        top: 6px;
+        left: 3px;
+        width: 1px;
+        height: 1px;
+        background-color: var.$color-gun-powder;
+        border-radius: 50%;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include mixin.min-tablet {
+        padding-left: 20px;
+        margin-bottom: 7px;
+
+        &::before {
+          top: 10px;
+          width: 2px;
+          height: 2px;
+        }
+      }
+
+      @include mixin.min-laptop {
+        margin-bottom: 10px;
+
+        &::before {
+          top: 15px;
+          width: 3px;
+          height: 3px;
+        }
+      }
+
+      @include mixin.min-desktop {
+        margin-bottom: 20px;
+
+        &::before {
+          top: 20px;
+        }
+      }
+
+      @include mixin.min-desktop-wide {
+        margin-bottom: 33px;
+        padding-left: 30px;
+
+        &::before {
+          top: 37px;
+          width: 6px;
+          height: 6px;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    @include mixin.min-laptop {
+      margin-bottom: 30px;
+    }
+
+    @include mixin.min-desktop {
+      margin-bottom: 50px;
+    }
+
+    @include mixin.min-desktop-wide {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__section-title {
+    padding-top: 2px;
+    min-width: 43.692%;
+
+    @include mixin.min-desktop-wide {
+      padding-top: 10px;
+      min-width: 40%;
+    }
+  }
+
+  &--dark {
+    background-color: var.$color-dim-gray;
+
+    #{$c}__title {
+      color: var.$color-white;
+    }
+
+    #{$c}__button {
+      color: var.$color-gun-powder;
+      background-color: var.$color-white;
+    }
+
+    #{$c}__price {
+      color: var.$color-white;
+    }
+
+    #{$c}__day-title {
+      color: var.$color-white;
+
+      span {
+        &::before {
+          background-color: var.$color-white;
+        }
+      }
+    }
+
+    #{$c}__day-sections {
+      color: var.$color-quartz;
+    }
+
+    #{$c}__section {
+      li {
+        &::before {
+          background-color: var.$color-quartz;
+        }
+      }
+    }
+  }
+
+  @include mixin.min-tablet {
+    padding: 40px 0;
+  }
+
+  @include mixin.min-laptop {
+    padding: 60px 0;
+  }
+
+  @include mixin.min-desktop {
+    padding: 80px 0;
+  }
+
+  @include mixin.min-desktop-wide {
+    padding: 130px 0;
+  }
+}

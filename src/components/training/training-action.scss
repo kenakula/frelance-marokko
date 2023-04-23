@@ -1,0 +1,75 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.training-action {
+  $c: &;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 12px;
+
+    @include mixin.min-laptop {
+      flex-direction: row;
+      column-gap: 40px;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @include mixin.font(12, 14);
+    margin: 0;
+    font-weight: 400;
+    text-align: center;
+
+    b {
+      font-weight: 600;
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(14, 18);
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(22, 28);
+      text-align: left;
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(36, 42);
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(43, 52);
+    }
+  }
+
+  &__button {
+    @include mixin.font(8, 10);
+    padding: 9px 24px;
+    min-height: auto;
+    max-width: none;
+    width: auto;
+    font-weight: 400;
+
+    @include mixin.min-tablet {
+      max-width: none;
+      width: 100%;
+    }
+
+    @include mixin.min-laptop {
+      max-width: none;
+    }
+
+    @include mixin.min-desktop {
+      max-width: 740px;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(36, 42);
+      min-height: 128px;
+      max-width: 825px;
+    }
+  }
+}

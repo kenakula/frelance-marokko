@@ -1,0 +1,44 @@
+mixin trainingLayout()
+  section.section.training
+    h2.training__title В нашей школе есть 3 курса <b>по&nbsp;обучению маникюра и педикюра</b>
+    ul.training__list
+      each item, index in courses
+        - const isEven = (index + 1) % 2 === 0
+        li
+          +trainingCourse(item, isEven)
+  section.section.training-models
+    .container
+      h2.training-models__title Моделей для практических дней прохождения курсов <b>предоставляет студия!</b>
+  +mastersBlock('', teachers).masters-block--training
+  section.section.training-feedback
+    .container
+      .training-feedback__inner
+        h2.training-feedback__title <b>Отзывы</b> по нашим курсам
+        ul.training-feedback__list
+          each feed in feedbacks
+            li
+              p !{feed.text}
+              p <b>Мастер</b> !{feed.name}
+
+  section.section.training-action
+    .container
+      .training-action__inner
+        h2.training-action__title <b>Узнать свободные даты</b> по обучению
+        a.button.button--dark.training-action__button(href="wp:fsdfsdfsd.com") Подробности у администратора
+  section.section.training-address
+    .container
+      .training-address__inner
+        .training-address__left-col
+          h2.training-address__title Курсы будут проходить в&nbsp;студии по адресу:
+        .training-address__right-col
+          address.training-address__address
+            p.training-address__address-text Санкт-Петербург, Репищева улица, д. 10, корп. 2
+            ul.training-address__phones
+              li
+                a(href="tel:+79668624159") +7 (966) 862-4159
+            .training-address__time
+              p График работы:
+              ul.training-address__time-list
+                li 9:00 - 21:00
+            .training-address__socials
+              +socials().socials--light

@@ -24,7 +24,7 @@
   ]
 
 mixin socials()
-  .socials
+  .socials&attributes(attributes)
     ul.socials__list
       each item in socials
         - const itemClass = `socials__link socials__link--${item.name}`;

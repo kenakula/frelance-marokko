@@ -39,7 +39,6 @@
 
     &--vk {
       background-image: url("../img/icon-vk.svg");
-
     }
 
     &--insta {
@@ -68,6 +67,12 @@
     @include mixin.min-desktop-wide {
       width: 60px;
       height: 60px;
+    }
+  }
+
+  &--light {
+    #{$c}__link {
+      filter: brightness(0) saturate(100%) invert(95%) sepia(100%) saturate(22%) hue-rotate(33deg) brightness(106%) contrast(104%);
     }
   }
 }

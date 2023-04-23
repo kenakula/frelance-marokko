@@ -1,0 +1,34 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixin;
+
+.training-models {
+  background-color: var.$color-dim-gray;
+  color: var.$color-white;
+
+  &__title {
+    @include mixin.font(9, 11);
+    margin: 0 auto;
+    font-weight: 400;
+    text-align: center;
+    max-width: 325px;
+
+    @include mixin.min-tablet {
+      @include mixin.font(14, 18);
+      max-width: 415px;
+    }
+
+    @include mixin.min-laptop {
+      @include mixin.font(22, 28);
+      max-width: 650px;
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(36, 42);
+      max-width: none;
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(43, 52);
+    }
+  }
+}

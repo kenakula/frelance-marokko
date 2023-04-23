@@ -1,0 +1,28 @@
+mixin trainingCourse({name, buttonText, priceText, image, days}, darkMode)
+
+  .training-course(class=darkMode ? 'training-course--dark' : '')
+    .container
+      header.training-course__header
+        .training-course__image
+          +imgResponsive(image)
+        .training-course__info
+          h3.training-course__title !{name}
+          a.button.button--dark.training-course__button(href="wp:ololo.com") #{buttonText}
+          p.training-course__price #{priceText}
+      ul.training-course__days-list
+        each day in days
+          - const {title, sections} = day;
+          li.training-course__day
+            h4.training-course__day-title
+              span #{title}
+            ul.training-course__day-sections
+              each section in sections
+                - const {name, list} = section;
+                li.training-course__section
+                  .training-course__section-title
+                    h5 #{name}
+                  ul
+                    each item in list
+                      li
+                        p #{item}
+

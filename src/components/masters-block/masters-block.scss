@@ -180,11 +180,15 @@
     }
 
     #{$c}__item {
-      width: 44%;
-      margin-right: 12%;
 
-      &:last-child {
-        margin-right: 0;
+
+      @include mixin.min-desktop {
+        width: 30%;
+        margin-right: 10%;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }

@@ -130,4 +130,16 @@
       max-width: 650px;
     }
   }
+
+  @include mixin.min-laptop {
+    margin-top: 80px;
+  }
+
+  @include mixin.min-desktop {
+    margin-top: 100px;
+  }
+
+  @include mixin.min-desktop-wide {
+    margin-top: 150px;
+  }
 }

@@ -22,6 +22,24 @@
     background-color: var.$color-dim-gray;
   }
 
+  &__icon {
+    display: block;
+    margin-left: 8px;
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+    &--watsapp {
+      background-image: url("../img/icon-watsapp.svg");
+    }
+
+    &--light {
+      filter: brightness(0) saturate(100%) invert(95%) sepia(100%) saturate(22%) hue-rotate(33deg) brightness(106%) contrast(104%);
+    }
+  }
+
   @include mixin.min-tablet {
     @include mixin.interactive-opacity;
     padding: 0 10px;
@@ -29,6 +47,11 @@
     max-width: 180px;
     font-size: mixin.rem(14);
     line-height: mixin.rem(20);
+
+    &__icon {
+      width: 17px;
+      height: 17px;
+    }
   }
 
   @include mixin.min-laptop {
@@ -37,6 +60,12 @@
     max-width: 260px;
     font-size: mixin.rem(18);
     line-height: mixin.rem(24);
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 12px;
+    }
   }
 
   @include mixin.min-desktop {
@@ -46,6 +75,12 @@
     font-size: mixin.rem(34);
     line-height: mixin.rem(42);
     font-weight: 400;
+
+    &__icon {
+      width: 32px;
+      height: 32px;
+      margin-left: 26px;
+    }
   }
 
   @include mixin.min-desktop-wide {

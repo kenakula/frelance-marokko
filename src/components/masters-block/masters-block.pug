@@ -1,6 +1,8 @@
-mixin mastersBlock(title, list)
+mixin mastersBlock(title, list, hiddenTitle)
   section.section.masters-block&attributes(attributes)
     .container
+      if hiddenTitle
+        h2.visually-hidden #{hiddenTitle}
       .masters-block__inner
         if title
           +titleLined(title)
@@ -9,9 +11,5 @@ mixin mastersBlock(title, list)
             li.masters-block__item
               .masters-block__image
                 +picture(item.image)
-              h3.masters-block__name #{item.name}
-              p.masters-block__specialty #{item.specialty}
-              if item.courses
-                ul
-                  each course in item.courses
-                    li #{course}
+              h3.masters-block__name !{item.name}
+              p.masters-block__specialty !{item.specialty}

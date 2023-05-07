@@ -125,7 +125,8 @@
       font-size: inherit;
       font-weight: 600;
       white-space: nowrap;
-      text-align: right;
+      text-align: center;
+      min-width: 100px;
     }
 
     @include mixin.min-tablet {
@@ -136,11 +137,21 @@
       font-size: mixin.rem(18);
     }
 
+    @include mixin.min-laptop {
+      td:last-child {
+        min-width: 150px;
+      }
+    }
+
     @include mixin.min-desktop {
       font-size: mixin.rem(24);
 
       td {
         padding: 13px 0;
+      }
+
+      td:last-child {
+        min-width: 250px;
       }
     }
 

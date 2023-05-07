@@ -5,7 +5,6 @@
   $c: &;
 
   &__title {
-    @include mixin.font(15, 18);
     margin: 0 0 18px 0;
     font-weight: 400;
     text-align: center;
@@ -15,19 +14,51 @@
     }
 
     @include mixin.min-tablet {
-      @include mixin.font(20, 26);
       margin-bottom: 24px;
     }
 
 
     @include mixin.min-desktop {
-      @include mixin.font(36, 48);
       margin-bottom: 40px;
     }
 
     @include mixin.min-desktop-wide {
-      @include mixin.font(50, 61);
       margin-bottom: 71px;
+    }
+  }
+
+  &__text {
+    @include mixin.font(13, 16);
+    margin-bottom: 17px;
+
+    &>p {
+      margin: 0;
+
+      &+p {
+        margin-top: 15px;
+      }
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(16, 20);
+      margin-bottom: 24px;
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(28, 36);
+      margin-bottom: 60px;
+
+      &>p {
+        margin: 0;
+
+        &+p {
+          margin-top: 80px;
+        }
+      }
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(36, 61);
     }
   }
 
@@ -35,7 +66,6 @@
     @include mixin.list-reset;
 
     li {
-      @include mixin.font(8, 12);
       margin-bottom: 17px;
       padding: 17px 22px;
       border: 1px solid var.$color-dim-gray;
@@ -44,38 +74,44 @@
         margin-bottom: 0;
       }
 
-      p {
-        margin: 0;
-
-        &+p {
-          margin-top: 15px;
-        }
-      }
-
       @include mixin.min-tablet {
-        @include mixin.font(16, 20);
         margin-bottom: 24px;
       }
 
       @include mixin.min-desktop {
-        @include mixin.font(28, 36);
         margin-bottom: 40px;
         padding: 80px 100px;
-
-        p {
-          margin: 0;
-
-          &+p {
-            margin-top: 80px;
-          }
-        }
       }
 
       @include mixin.min-desktop-wide {
-        @include mixin.font(36, 61);
         padding: 110px 140px;
         margin-bottom: 70px;
       }
+    }
+  }
+
+  &__ref {
+    @include mixin.font(13, 16);
+
+    p {
+      margin: 0;
+
+      &+p {
+        margin: 0;
+      }
+    }
+
+    @include mixin.min-tablet {
+      @include mixin.font(16, 20);
+      margin-bottom: 24px;
+    }
+
+    @include mixin.min-desktop {
+      @include mixin.font(28, 36);
+    }
+
+    @include mixin.min-desktop-wide {
+      @include mixin.font(36, 61);
     }
   }
 }

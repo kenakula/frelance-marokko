@@ -4,7 +4,7 @@
 .training-course {
   $c: &;
 
-  padding: 20px 0;
+  padding: 25px 0;
   overflow-x: hidden;
 
   &__header {
@@ -77,7 +77,7 @@
   }
 
   &__title {
-    @include mixin.font(9, 12);
+    @include mixin.font(13, 16);
     margin: 0 0 12px 0;
     font-weight: 400;
     color: var.$color-gun-powder;
@@ -103,10 +103,11 @@
   }
 
   &__button {
-    @include mixin.font(7, 8);
+    @include mixin.font(13, 16);
+    padding-top: 5px;
+    padding-bottom: 5px;
     min-width: 138px;
     width: auto;
-    min-height: 28px;
     font-weight: 400;
     margin-bottom: 12px;
 
@@ -134,7 +135,7 @@
   }
 
   &__price {
-    @include mixin.font(9, 12);
+    @include mixin.font(13, 16);
     margin: 0;
     font-weight: 400;
     color: var.$color-gun-powder;
@@ -169,7 +170,7 @@
   }
 
   &__day-title {
-    @include mixin.font(9, 11);
+    @include mixin.font(15, 16);
     position: relative;
     margin: 0 0 15px 0;
     font-weight: 400;
@@ -228,7 +229,7 @@
     }
 
     h5 {
-      @include mixin.font(8, 9);
+      @include mixin.font(13, 16);
       margin: 0;
       font-weight: 600;
 
@@ -251,7 +252,7 @@
 
     ul {
       @include mixin.list-reset;
-      @include mixin.font(8, 13);
+      @include mixin.font(13, 16);
 
       @include mixin.min-tablet {
         @include mixin.font(14, 18);
@@ -277,10 +278,10 @@
 
       &::before {
         @include mixin.pseudo;
-        top: 6px;
+        top: 7px;
         left: 3px;
-        width: 1px;
-        height: 1px;
+        width: 3px;
+        height: 3px;
         background-color: var.$color-gun-powder;
         border-radius: 50%;
       }
@@ -294,9 +295,7 @@
         margin-bottom: 7px;
 
         &::before {
-          top: 10px;
-          width: 2px;
-          height: 2px;
+          top: 8px;
         }
       }
 
@@ -305,8 +304,8 @@
 
         &::before {
           top: 15px;
-          width: 3px;
-          height: 3px;
+          width: 4px;
+          height: 4px;
         }
       }
 
@@ -314,7 +313,9 @@
         margin-bottom: 20px;
 
         &::before {
-          top: 20px;
+          top: 19px;
+          width: 5px;
+          height: 5px;
         }
       }
 
@@ -324,8 +325,8 @@
 
         &::before {
           top: 37px;
-          width: 6px;
-          height: 6px;
+          width: 8px;
+          height: 8px;
         }
       }
     }
@@ -349,11 +350,16 @@
 
   &__section-title {
     padding-top: 2px;
-    min-width: 43.692%;
+    width: 37%;
+    flex-shrink: 0;
+
+    @include mixin.min-tablet {
+      width: 43%;
+    }
 
     @include mixin.min-desktop-wide {
       padding-top: 10px;
-      min-width: 40%;
+      width: 40%;
     }
   }
 

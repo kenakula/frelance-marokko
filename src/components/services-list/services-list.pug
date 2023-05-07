@@ -38,6 +38,10 @@ mixin servicesList()
             tr.visually-hidden
               th Название
               th Цена
+              tr
+                td
+                td
+                  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ТОП | мастер
             each row in services.womenNails.list
               tr
                 td #{row.name}
@@ -52,6 +56,10 @@ mixin servicesList()
             tr.visually-hidden
               th Название
               th Цена
+            tr
+                td
+                td
+                  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ТОП | мастер
             each row in services.mensList.list
               tr
                 td #{row.name}

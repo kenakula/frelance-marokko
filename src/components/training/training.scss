@@ -5,7 +5,6 @@
   $c: &;
 
   &__title {
-    @include mixin.font(12, 16);
     margin: 0 auto 10px auto;
     max-width: 250px;
     font-weight: 400;
@@ -16,24 +15,20 @@
     }
 
     @include mixin.min-tablet {
-      @include mixin.font(18, 24);
       margin-bottom: 0;
       max-width: 370px;
     }
 
     @include mixin.min-laptop {
-      @include mixin.font(24, 32);
       margin-bottom: 0;
       max-width: 500px;
     }
 
     @include mixin.min-desktop {
-      @include mixin.font(34, 42);
       max-width: 720px;
     }
 
     @include mixin.min-desktop-wide {
-      @include mixin.font(43, 52);
       max-width: 880px;
     }
   }

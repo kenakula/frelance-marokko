@@ -1,6 +1,6 @@
 mixin trainingLayout()
   section.section.training
-    h2.training__title В нашей школе есть 3 курса <b>по&nbsp;обучению маникюра и педикюра</b>
+    h2.title.training__title <b>Школа маникюра и&nbsp;педикюра</b>
     ul.training__list
       each item, index in courses
         - const isEven = (index + 1) % 2 === 0
@@ -8,23 +8,27 @@ mixin trainingLayout()
           +trainingCourse(item, isEven)
   section.section.training-models
     .container
-      h2.training-models__title Моделей для практических дней прохождения курсов <b>предоставляет студия!</b>
-  +mastersBlock('', teachers).masters-block--training
+      h2.title.training-models__title Моделей для практических дней прохождения курсов <b>предоставляет студия!</b>
+  +mastersBlock('', teachers, 'Преподаватели наших курсов').masters-block--training
   section.section.training-feedback
     .container
       .training-feedback__inner
-        h2.training-feedback__title <b>Отзывы</b> по нашим курсам
+        h2.title.training-feedback__title <b>Отзывы</b> по нашим курсам
         ul.training-feedback__list
           each feed in feedbacks
             li
-              p !{feed.text}
-              p <b>Мастер</b> !{feed.name}
+              .training-feedback__text !{feed.text}
+              .training-feedback__ref
+                p <b>Ученик</b> !{feed.student}
+                p <b>Мастер</b> !{feed.name}
 
   section.section.training-action
     .container
       .training-action__inner
-        h2.training-action__title <b>Узнать свободные даты</b> по обучению
-        a.button.button--dark.training-action__button(href="wp:fsdfsdfsd.com") Подробности у администратора
+        h2.title.training-action__title <b>Узнать свободные даты</b> по обучению
+        a.button.button--dark.training-action__button(href="wp:fsdfsdfsd.com")
+          span Подробности у администратора
+          span.button__icon.button__icon--watsapp.button__icon--light
   section.section.training-address
     .container
       .training-address__inner

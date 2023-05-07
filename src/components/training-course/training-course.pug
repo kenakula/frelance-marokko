@@ -1,4 +1,4 @@
-mixin trainingCourse({name, buttonText, priceText, image, days}, darkMode)
+mixin trainingCourse({name, buttonText, buttonMobileText, priceText, image, days}, darkMode)
 
   .training-course(class=darkMode ? 'training-course--dark' : '')
     .container
@@ -7,8 +7,10 @@ mixin trainingCourse({name, buttonText, priceText, image, days}, darkMode)
           +imgResponsive(image)
         .training-course__info
           h3.training-course__title !{name}
-          a.button.button--dark.training-course__button(href="wp:ololo.com") #{buttonText}
-          p.training-course__price #{priceText}
+          a.button.button--dark.training-course__button(href="wp:ololo.com")
+            span.desktop-only #{buttonText}
+            span.mobile-only #{buttonMobileText}
+          p.training-course__price Стоимость <span class="desktop-only">курса</span> #{priceText}
       ul.training-course__days-list
         each day in days
           - const {title, sections} = day;
